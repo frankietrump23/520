@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <title>致你 · 五月二十日</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -15,8 +15,8 @@
   --water:#5888a4;--water-l:#a8cce0;
   --lotus:#c85870;
 }
-html,body{width:100%;height:100%;overflow:hidden;background:var(--paper);
-  font-family:'Noto Serif SC','STSong','SimSun',serif;color:var(--ink);user-select:none}
+html,body{width:100%;height:100%;overflow:hidden;background:#87CEEB;
+  font-family:'Noto Serif SC','STSong','STKaiti','SimSun',serif;color:var(--ink);user-select:none}
 
 /* ===== loading ===== */
 #loading{position:fixed;inset:0;z-index:300;background:var(--paper);
@@ -27,46 +27,48 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--paper);
 .ink-drop::after{content:'';position:absolute;inset:0;border-radius:50%;
   background:radial-gradient(circle at 38% 32%,rgba(255,255,255,.2),transparent 60%)}
 @keyframes idp{0%,100%{transform:scale(.82);opacity:.65}50%{transform:scale(1.06);opacity:1}}
-#loading p{font-size:12px;color:var(--ink-l);letter-spacing:5px}
+#loading p{font-size:13px;color:var(--ink-m);letter-spacing:5px}
 
-/* ===== 主场景 ===== */
+/* ===== main scene ===== */
 #scene{position:relative;width:100%;height:100vh;overflow:hidden;display:none}
-#bg-canvas{position:absolute;inset:0;width:100%;height:100%}
-#fx-canvas{position:fixed;inset:0;pointer-events:none;z-index:40}
+#main-cvs{position:absolute;inset:0;width:100%;height:100%;touch-action:none}
 
-/* ===== 标题 ===== */
+/* ===== header ===== */
 #hdr{position:absolute;top:0;left:0;right:0;text-align:center;
   padding:18px 16px 0;pointer-events:none;z-index:10;
-  background:linear-gradient(to bottom,rgba(244,238,223,.92) 50%,transparent)}
-#hdr .dt{font-size:10px;color:var(--ink-l);letter-spacing:5px}
-#hdr h1{font-size:20px;font-weight:600;color:var(--ink);letter-spacing:10px;
-  margin-top:5px;text-shadow:0 1px 8px rgba(176,40,40,.08)}
-#hdr .sub{font-size:10px;color:var(--ink-l);letter-spacing:2px;margin-top:3px}
+  background:linear-gradient(to bottom,rgba(175,215,240,.82) 50%,transparent)}
+#hdr .dt{font-size:11px;color:#4a4540;letter-spacing:5px;text-shadow:0 1px 6px rgba(255,255,255,0.85)}
+#hdr h1{font-size:21px;font-weight:600;color:#2a2520;letter-spacing:10px;
+  margin-top:5px;text-shadow:0 1px 8px rgba(255,255,255,0.5)}
+#hdr .sub{font-size:11px;color:#4a4540;letter-spacing:2px;margin-top:3px;
+  text-shadow:0 1px 4px rgba(255,255,255,0.7)}
 
-/* ===== 倒计时 ===== */
+/* ===== countdown ===== */
 #cd{position:absolute;top:86px;right:12px;z-index:10;
-  background:rgba(236,227,208,.85);border:.5px solid rgba(168,128,16,.4);
+  background:rgba(244,238,223,.78);border:.5px solid rgba(168,128,16,.35);
   border-radius:6px;padding:6px 12px;text-align:center;backdrop-filter:blur(6px)}
 #cd .n{font-size:24px;font-weight:600;color:var(--red);line-height:1}
-#cd .c{font-size:9px;color:var(--ink-l);letter-spacing:1px;margin-top:1px}
+#cd .c{font-size:11px;color:#4a4540;letter-spacing:1px;margin-top:1px}
 
-/* ===== 进度 ===== */
+/* ===== progress ===== */
 #prog{position:absolute;top:86px;left:12px;z-index:10;
-  font-size:10px;color:var(--ink-l);letter-spacing:1px;pointer-events:none}
-#pb{width:52px;height:2px;background:rgba(0,0,0,.06);border-radius:1px;margin-top:4px;overflow:hidden}
+  font-size:11px;color:#2a2520;letter-spacing:1px;pointer-events:none;
+  text-shadow:0 1px 5px rgba(255,255,255,0.75)}
+#pb{width:52px;height:2px;background:rgba(0,0,0,.08);border-radius:1px;margin-top:4px;overflow:hidden}
 #pf{height:100%;background:var(--red);border-radius:1px;width:0;transition:width .5s}
 
-/* ===== 景物 ===== */
+/* ===== scenic spots ===== */
 .spot{position:absolute;cursor:pointer;z-index:5;
   transition:transform .2s cubic-bezier(.34,1.4,.64,1)}
 .spot:active{transform:scale(.88)!important}
-.spot svg{display:block;filter:drop-shadow(0 2px 8px rgba(26,22,14,.12))}
-.spot .lb{text-align:center;font-size:9px;color:var(--ink-l);letter-spacing:2px;margin-top:2px;
-  opacity:.7;transition:opacity .3s}
+.spot svg{display:block;transform:scale(.58);transform-origin:center center;
+  filter:drop-shadow(0 2px 8px rgba(26,22,14,.1));opacity:.82}
+.spot .lb{text-align:center;font-size:11px;color:#2a2520;letter-spacing:2px;margin-top:2px;
+  opacity:.82;transition:opacity .3s;text-shadow:0 1px 5px rgba(255,255,255,0.8)}
 .spot:hover .lb{opacity:1}
 .spot .hint{position:absolute;top:-20px;left:50%;transform:translateX(-50%);
-  background:rgba(176,40,40,.06);border:.5px solid rgba(176,40,40,.25);
-  border-radius:3px;padding:1px 7px;font-size:9px;color:var(--red);
+  background:rgba(176,40,40,.08);border:.5px solid rgba(176,40,40,.3);
+  border-radius:3px;padding:2px 8px;font-size:10px;color:var(--red);
   white-space:nowrap;animation:hf 2s ease-in-out infinite;pointer-events:none}
 @keyframes hf{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-5px)}}
 .done-dot{position:absolute;top:-4px;right:-4px;width:14px;height:14px;
@@ -75,34 +77,36 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--paper);
   animation:dotPop .3s cubic-bezier(.34,1.5,.64,1)}
 @keyframes dotPop{from{transform:scale(0)}}
 
-/* ===== 底栏 ===== */
+/* ===== bottom bar ===== */
 #bar{position:absolute;bottom:0;left:0;right:0;padding:12px 16px 26px;
   display:flex;gap:10px;align-items:center;justify-content:center;
-  background:linear-gradient(to top,rgba(244,238,223,.95) 50%,transparent);z-index:10}
-.btn{background:rgba(244,238,223,.8);border:.5px solid var(--ink-l);border-radius:3px;
-  padding:8px 18px;font-family:inherit;font-size:12px;color:var(--ink);
+  background:linear-gradient(to top,rgba(190,210,170,.82) 50%,transparent);z-index:10}
+.btn{background:rgba(244,238,223,.75);border:.5px solid #9a8a70;border-radius:3px;
+  padding:8px 18px;font-family:inherit;font-size:13px;color:#2a2520;
   letter-spacing:3px;cursor:pointer;transition:all .2s;backdrop-filter:blur(4px)}
 .btn:active{background:var(--ink);color:var(--paper)}
 .btn.r{border-color:var(--red);color:var(--red)}
 .btn.r:active{background:var(--red);color:#fff}
 
-/* ===== 暗语 ===== */
+/* ===== unlock input ===== */
 #ulk{position:absolute;bottom:78px;left:0;right:0;
   display:flex;flex-direction:column;align-items:center;gap:8px;
   opacity:0;pointer-events:none;transition:opacity .4s;z-index:20}
 #ulk.on{opacity:1;pointer-events:all}
-#ulk p{font-size:10px;color:var(--ink-l);letter-spacing:3px}
-#ulk input{width:100px;background:transparent;border:none;
-  border-bottom:1px solid var(--ink-l);outline:none;font-family:inherit;
-  font-size:20px;text-align:center;color:var(--red);letter-spacing:10px;padding:3px 6px}
+#ulk p{font-size:11px;color:#2a2520;letter-spacing:3px;
+  text-shadow:0 1px 5px rgba(255,255,255,0.8)}
+#ulk input{width:100px;background:rgba(244,238,223,.6);border:none;
+  border-bottom:1px solid #9a8a70;outline:none;font-family:inherit;
+  font-size:20px;text-align:center;color:var(--red);letter-spacing:10px;padding:3px 6px;
+  border-radius:4px 4px 0 0}
 
-/* ===== overlay ===== */
+/* ===== overlays ===== */
 .ov{position:fixed;inset:0;z-index:100;
   display:flex;align-items:center;justify-content:center;padding:20px;
   opacity:0;pointer-events:none;transition:opacity .35s}
 .ov.on{opacity:1;pointer-events:all}
 
-/* ===== 情话卡片 ===== */
+/* ===== card ===== */
 .card{background:var(--paper);border-radius:2px;width:100%;max-width:310px;
   padding:32px 26px 24px;position:relative;
   transform:scale(.84) translateY(20px);
@@ -113,16 +117,16 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--paper);
   width:16px;height:16px;border-color:rgba(176,40,40,.3);border-style:solid}
 .card::before{top:8px;left:8px;border-width:1px 0 0 1px}
 .card::after{bottom:8px;right:8px;border-width:0 1px 1px 0}
-.card .x{position:absolute;top:8px;right:12px;font-size:18px;
-  color:var(--ink-l);cursor:pointer;background:none;border:none;font-family:inherit}
+.card .x{position:absolute;top:8px;right:12px;font-size:20px;
+  color:var(--ink-m);cursor:pointer;background:none;border:none;font-family:inherit}
 .card .ico{text-align:center;font-size:28px;margin-bottom:12px;
   filter:drop-shadow(0 2px 4px rgba(0,0,0,.08))}
-.card .ttl{font-size:11px;color:var(--ink-l);letter-spacing:4px;text-align:center;margin-bottom:16px}
-.card .bdy{font-size:14px;line-height:2.1;color:var(--ink);text-align:center;
+.card .ttl{font-size:12px;color:var(--ink-m);letter-spacing:4px;text-align:center;margin-bottom:16px}
+.card .bdy{font-size:15px;line-height:2.1;color:var(--ink);text-align:center;
   white-space:pre-line;min-height:68px;letter-spacing:.5px}
-.card .ft{margin-top:16px;font-size:10px;color:var(--ink-l);text-align:center;letter-spacing:1px}
+.card .ft{margin-top:16px;font-size:11px;color:var(--ink-m);text-align:center;letter-spacing:1px}
 
-/* ===== 信件 ===== */
+/* ===== letter ===== */
 #ltr .card{max-width:340px;padding:34px 28px 26px}
 .lhd{text-align:center;margin-bottom:20px}
 .seal{display:inline-block;width:36px;height:36px;border:1.5px solid var(--red);
@@ -131,36 +135,77 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--paper);
   animation:sg 3s ease-in-out infinite}
 @keyframes sg{0%,100%{box-shadow:0 0 0 0 transparent}50%{box-shadow:0 0 0 4px rgba(176,40,40,.1)}}
 .lhd h2{font-size:16px;font-weight:600;letter-spacing:6px;color:var(--ink)}
-.lbdy{font-size:13px;line-height:2.4;color:var(--ink);
+.lbdy{font-size:14px;line-height:2.4;color:var(--ink);
   border-top:.5px solid var(--paper-w);padding-top:16px;white-space:pre-line;letter-spacing:.5px}
-.lft{margin-top:20px;text-align:right;font-size:10px;color:var(--ink-l);letter-spacing:1px}
+.lft{margin-top:20px;text-align:right;font-size:11px;color:var(--ink-m);letter-spacing:1px}
 
-/* ===== 彩蛋：月夜场景 ===== */
+/* ===== easter egg: moon night ===== */
 #egg-scene{position:fixed;inset:0;z-index:150;display:none;
   background:linear-gradient(to bottom,#0a0e18 0%,#141e30 40%,#1a2840 70%,#0e1828 100%)}
 #egg-canvas{position:absolute;inset:0;width:100%;height:100%}
 #egg-content{position:absolute;inset:0;display:flex;flex-direction:column;
   align-items:center;justify-content:center;z-index:5;padding:20px}
-#egg-poem{color:rgba(230,220,200,.9);font-size:16px;line-height:2.4;
+#egg-poem{color:rgba(230,220,200,.92);font-size:17px;line-height:2.4;
   text-align:center;letter-spacing:2px;opacity:0;
   transform:translateY(20px);transition:all 1s .5s}
 #egg-scene.on #egg-poem{opacity:1;transform:translateY(0)}
 #egg-close{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
   z-index:10;background:rgba(255,255,255,.08);border:.5px solid rgba(255,255,255,.15);
   border-radius:20px;padding:6px 20px;color:rgba(255,255,255,.5);font-family:inherit;
-  font-size:11px;letter-spacing:2px;cursor:pointer}
+  font-size:12px;letter-spacing:2px;cursor:pointer}
 #egg-close:active{background:rgba(255,255,255,.15)}
 
-/* ===== 成就 ===== */
+/* ===== completion celebration ===== */
+#celeb{position:fixed;inset:0;z-index:250;display:none;align-items:center;justify-content:center;
+  background:rgba(0,0,0,0);pointer-events:none;transition:background .6s}
+#celeb.on{display:flex;background:rgba(30,25,20,0.35);pointer-events:auto}
+#celeb-card{transform:translate(-50%,-50%) scale(.6) rotate(-3deg);opacity:0;
+  transition:transform .7s cubic-bezier(.34,1.56,.64,1),opacity .5s;
+  background:linear-gradient(135deg,#faf6ee,#f4eedf);border:1px solid var(--gold);
+  border-radius:14px;padding:32px 36px 28px;text-align:center;position:relative;
+  box-shadow:0 8px 40px rgba(180,140,60,0.18),0 0 0 4px rgba(168,128,16,0.08);
+  max-width:280px}
+#celeb.on #celeb-card{transform:translate(-50%,-50%) scale(1) rotate(0deg);opacity:1;
+  position:absolute;top:50%;left:50%}
+#celeb-card::before{content:'';position:absolute;inset:-6px;border-radius:18px;
+  background:linear-gradient(135deg,rgba(168,128,16,0.1),rgba(200,100,80,0.08));z-index:-1}
+.celeb-hearts{position:relative;width:60px;height:60px;margin:0 auto 12px}
+.celeb-heart{position:absolute;font-size:22px;opacity:0;
+  animation:heartPop .5s ease-out forwards}
+.celeb-heart:nth-child(1){left:50%;top:50%;animation-delay:.1s;font-size:28px}
+.celeb-heart:nth-child(2){left:5px;top:10px;animation-delay:.3s;font-size:16px}
+.celeb-heart:nth-child(3){right:5px;top:10px;animation-delay:.4s;font-size:18px}
+.celeb-heart:nth-child(4){left:0;bottom:5px;animation-delay:.5s;font-size:14px}
+.celeb-heart:nth-child(5){right:0;bottom:5px;animation-delay:.6s;font-size:15px}
+@keyframes heartPop{0%{opacity:0;transform:scale(0) translateY(10px)}
+  50%{opacity:1;transform:scale(1.2) translateY(-5px)}
+  100%{opacity:1;transform:scale(1) translateY(0)}}
+#celeb-title{font-size:18px;color:var(--red);letter-spacing:3px;margin-bottom:6px;font-weight:600}
+#celeb-sub{font-size:13px;color:var(--ink-m);letter-spacing:1.5px;line-height:1.8}
+#celeb-dismiss{margin-top:18px;font-size:12px;color:var(--ink-l);cursor:pointer;
+  letter-spacing:1px;opacity:.7;transition:opacity .2s;pointer-events:auto;
+  background:none;border:none;font-family:inherit}
+#celeb-dismiss:hover{opacity:1}
+/* celeb floating petals */
+.celeb-petal{position:fixed;pointer-events:none;z-index:249;border-radius:50%;
+  opacity:0;animation:petalFall var(--dur,3s) var(--delay,0s) ease-in forwards}
+@keyframes petalFall{
+  0%{opacity:0;transform:translateY(-20px) rotate(0deg) scale(.5)}
+  15%{opacity:.8}
+  85%{opacity:.6}
+  100%{opacity:0;transform:translateY(100vh) rotate(360deg) scale(.3)}
+}
+
+/* ===== toast ===== */
 #toast{position:fixed;top:50%;left:50%;
   transform:translate(-50%,-50%) scale(.7);z-index:200;
   background:var(--paper);border:.5px solid var(--gold);
   border-radius:8px;padding:20px 32px;text-align:center;
   opacity:0;transition:transform .4s cubic-bezier(.34,1.5,.64,1),opacity .3s;pointer-events:none}
 #toast.on{transform:translate(-50%,-50%) scale(1);opacity:1}
-#toast p{font-size:13px;color:var(--ink);margin-top:8px;letter-spacing:2px}
+#toast p{font-size:14px;color:var(--ink);margin-top:8px;letter-spacing:2px}
 
-/* ===== 墨滴 ===== */
+/* ===== ink drop ===== */
 .ink-d{position:fixed;pointer-events:none;z-index:45;border-radius:50%;
   background:var(--ink);animation:ids .5s ease-out forwards}
 @keyframes ids{0%{transform:scale(0);opacity:.6}60%{transform:scale(1.3);opacity:.2}100%{transform:scale(1.6);opacity:0}}
@@ -171,8 +216,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--paper);
 <div id="loading"><div class="ink-drop"></div><p>铺纸研墨…</p></div>
 
 <div id="scene">
-  <canvas id="bg-canvas"></canvas>
-  <canvas id="fx-canvas"></canvas>
+  <canvas id="main-cvs"></canvas>
 
   <div id="hdr">
     <div class="dt">二〇二六 · 五月 · 二十日</div>
@@ -182,10 +226,10 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--paper);
   <div id="cd"><div class="n" id="cdn">3</div><div class="c" id="cdc">天后见你</div></div>
   <div id="prog">已寻得 <span id="pc">0</span>/10<div id="pb"><div id="pf"></div></div></div>
 
-  <!-- ===== 园林景物（按中国园林布局） ===== -->
+  <!-- ===== 10 scenic spots ===== -->
 
-  <!-- 远景：左侧竹林 -->
-  <div class="spot" id="s0" style="left:3%;top:28%;" onclick="openC(0)">
+  <!-- 0: Bamboo -->
+  <div class="spot" id="s0" style="left:86%;top:36%;" onclick="openC(0)">
     <svg width="48" height="88" viewBox="0 0 48 88">
       <rect x="16" y="2" width="6" height="82" rx="3" fill="#4a7a40"/>
       <rect x="25" y="10" width="5" height="72" rx="2.5" fill="#3c6c34"/>
@@ -203,8 +247,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--paper);
     <div class="hint">轻触</div>
   </div>
 
-  <!-- 远景：右侧梅花 -->
-  <div class="spot" id="s1" style="right:2%;top:24%;" onclick="openC(1)">
+  <!-- 1: Cherry Blossom -->
+  <div class="spot" id="s1" style="left:8%;top:36%;" onclick="openC(1)">
     <svg width="50" height="65" viewBox="0 0 50 65">
       <path d="M25 62 Q22 46 18 28 Q24 20 28 14" stroke="#5c3c20" stroke-width="2.5" fill="none" stroke-linecap="round"/>
       <path d="M25 44 Q32 36 40 30" stroke="#5c3c20" stroke-width="1.8" fill="none" stroke-linecap="round"/>
@@ -213,11 +257,11 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--paper);
       <g transform="translate(40 28)"><circle cx="0" cy="-4.8" r="2.8" fill="#d89098"/><circle cx="4.6" cy="-1.5" r="2.8" fill="#e0a0a8"/><circle cx="2.8" cy="3.8" r="2.8" fill="#d89098"/><circle cx="-2.8" cy="3.8" r="2.8" fill="#e0a0a8"/><circle cx="-4.6" cy="-1.5" r="2.8" fill="#d89098"/><circle cx="0" cy="0" r="2" fill="#e8c840"/></g>
       <g transform="translate(10 18)"><circle cx="0" cy="-5" r="3.2" fill="#e0a0a8"/><circle cx="4.8" cy="-1.5" r="3.2" fill="#d89098"/><circle cx="3" cy="4" r="3.2" fill="#e0a0a8"/><circle cx="-3" cy="4" r="3.2" fill="#d89098"/><circle cx="-4.8" cy="-1.5" r="3.2" fill="#e0a0a8"/><circle cx="0" cy="0" r="2.2" fill="#e8c840"/></g>
     </svg>
-    <div class="lb">梅</div>
+    <div class="lb">花</div>
   </div>
 
-  <!-- 中景：中央亭子 -->
-  <div class="spot" id="s2" style="left:50%;top:35%;transform:translateX(-50%);" onclick="openC(2)">
+  <!-- 2: Pavilion -->
+  <div class="spot" id="s2" style="left:74%;top:30%;" onclick="openC(2)">
     <svg width="80" height="80" viewBox="0 0 80 80">
       <polygon points="40,4 74,36 6,36" fill="#b02828" opacity=".9"/>
       <polygon points="40,4 68,32 12,32" fill="#c84040" opacity=".55"/>
@@ -230,25 +274,32 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--paper);
       <rect x="10" y="65" width="60" height="8" fill="#c0a060" rx="2"/>
       <rect x="12" y="50" width="56" height="2" fill="#7a5e18" rx="1" opacity=".5"/>
     </svg>
-    <div class="lb">听风亭</div>
+    <div class="lb">亭</div>
   </div>
 
-  <!-- 中景：月洞门（亭左） -->
-  <div class="spot" id="s3" style="left:10%;top:44%;" onclick="openC(3)">
+  <!-- 3: Moon Gate / Stone Path -->
+  <div class="spot" id="s3" style="left:17%;top:67%;" onclick="openC(3)">
     <svg width="50" height="66" viewBox="0 0 50 66">
       <rect x="2" y="16" width="46" height="48" fill="#cdc0a4" opacity=".6"/>
-      <circle cx="25" cy="38" r="19" fill="#f4eedf"/>
-      <circle cx="25" cy="38" r="19" fill="none" stroke="#b09060" stroke-width="1.8"/>
-      <circle cx="25" cy="38" r="18" fill="rgba(168,204,224,.2)"/>
-      <line x1="25" y1="56" x2="25" y2="44" stroke="#356848" stroke-width="1.2"/>
-      <circle cx="25" cy="42" r="5" fill="rgba(53,104,72,.4)"/>
+      <!-- stone path: winding trail with stepping stones -->
+      <ellipse cx="25" cy="14" rx="8" ry="4.5" fill="#b8a888" opacity=".7"/>
+      <ellipse cx="20" cy="24" rx="7" ry="4" fill="#c4b498" opacity=".75"/>
+      <ellipse cx="28" cy="33" rx="8" ry="4.2" fill="#b8a888" opacity=".7"/>
+      <ellipse cx="22" cy="42" rx="7.5" ry="4" fill="#c4b498" opacity=".75"/>
+      <ellipse cx="27" cy="51" rx="8" ry="4.5" fill="#b8a888" opacity=".7"/>
+      <!-- grass edges -->
+      <line x1="14" y1="22" x2="12" y2="26" stroke="#5a8a50" stroke-width="1" stroke-linecap="round"/>
+      <line x1="16" y1="30" x2="14" y2="34" stroke="#4a7a40" stroke-width=".8" stroke-linecap="round"/>
+      <line x1="35" y1="40" x2="37" y2="44" stroke="#5a8a50" stroke-width=".9" stroke-linecap="round"/>
+      <line x1="18" y1="48" x2="15" y2="52" stroke="#4a7a40" stroke-width=".8" stroke-linecap="round"/>
+      <!-- top frame -->
       <rect x="2" y="8" width="46" height="10" fill="#b09060" opacity=".35"/>
     </svg>
-    <div class="lb">月洞门</div>
+    <div class="lb">径</div>
   </div>
 
-  <!-- 中景：灯笼（亭上） -->
-  <div class="spot" id="s4" style="left:50%;top:14%;transform:translateX(-50%);" onclick="openC(4)">
+  <!-- 4: Lantern -->
+  <div class="spot" id="s4" style="left:80%;top:40%;" onclick="openC(4)">
     <svg width="28" height="52" viewBox="0 0 28 52">
       <line x1="14" y1="0" x2="14" y2="6" stroke="#7a6038" stroke-width=".8"/>
       <path d="M4 10 Q1 20 1 27 Q1 36 4 44L24 44 Q27 36 27 27 Q27 20 24 10Z" fill="#b02828" opacity=".92"/>
@@ -261,11 +312,11 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--paper);
       <line x1="14" y1="46" x2="14" y2="52" stroke="#f0c838" stroke-width="1"/>
       <line x1="17" y1="46" x2="19" y2="52" stroke="#f0c838" stroke-width="1"/>
     </svg>
-    <div class="lb">灯笼</div>
+    <div class="lb">灯</div>
   </div>
 
-  <!-- 近景：荷花（池中左） -->
-  <div class="spot" id="s5" style="left:14%;top:62%;" onclick="openC(5)">
+  <!-- 5: Lotus -->
+  <div class="spot" id="s5" style="left:30%;top:66%;" onclick="openC(5)">
     <svg width="54" height="64" viewBox="0 0 54 64">
       <ellipse cx="27" cy="58" rx="24" ry="6" fill="#356848" opacity=".7"/>
       <ellipse cx="13" cy="55" rx="12" ry="4" fill="#2a5438" opacity=".55"/>
@@ -281,8 +332,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--paper);
     <div class="lb">荷</div>
   </div>
 
-  <!-- 近景：石桥（池中右） -->
-  <div class="spot" id="s6" style="right:8%;top:58%;" onclick="openC(6)">
+  <!-- 6: Bridge -->
+  <div class="spot" id="s6" style="left:26%;top:54%;" onclick="openC(6)">
     <svg width="72" height="42" viewBox="0 0 72 42">
       <ellipse cx="36" cy="38" rx="30" ry="4" fill="rgba(88,136,164,.22)"/>
       <path d="M4 36 Q36 6 68 36" stroke="#7a6840" stroke-width="2.5" fill="none"/>
@@ -294,11 +345,11 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--paper);
       <line x1="60" y1="26" x2="60" y2="32" stroke="#7a6840" stroke-width="1.2"/>
       <path d="M10 32 Q36 22 62 32" stroke="#7a6840" stroke-width=".6" fill="none" opacity=".5"/>
     </svg>
-    <div class="lb">石桥</div>
+    <div class="lb">桥</div>
   </div>
 
-  <!-- 近景：锦鲤（池中） -->
-  <div class="spot" id="s7" style="left:42%;top:65%;" onclick="openC(7)">
+  <!-- 7: Koi -->
+  <div class="spot" id="s7" style="left:50%;top:66%;" onclick="openC(7)">
     <svg width="44" height="26" viewBox="0 0 44 26">
       <ellipse cx="20" cy="13" rx="14" ry="8" fill="#b83838" opacity=".88"/>
       <polygon points="34,4 44,1 42,13 44,25 34,22" fill="#a02828" opacity=".78"/>
@@ -306,11 +357,11 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--paper);
       <circle cx="9" cy="10" r="1" fill="#1a160e"/>
       <path d="M15 6 Q19 2 25 4" stroke="#901818" stroke-width=".8" fill="none"/>
     </svg>
-    <div class="lb">锦鲤</div>
+    <div class="lb">鱼</div>
   </div>
 
-  <!-- 近景：金鱼（池中） -->
-  <div class="spot" id="s8" style="left:60%;top:68%;" onclick="openC(8)">
+  <!-- 8: Goldfish -->
+  <div class="spot" id="s8" style="left:58%;top:70%;" onclick="openC(8)">
     <svg width="38" height="22" viewBox="0 0 38 22">
       <ellipse cx="17" cy="11" rx="12" ry="7" fill="#a88010" opacity=".9"/>
       <polygon points="29,4 38,1 37,11 38,21 29,18" fill="#907008" opacity=".8"/>
@@ -321,8 +372,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--paper);
     <div class="lb">金鱼</div>
   </div>
 
-  <!-- 近景：山石（左下） -->
-  <div class="spot" id="s9" style="left:0;top:76%;" onclick="openC(9)">
+  <!-- 9: Taihu Rock -->
+  <div class="spot" id="s9" style="left:42%;top:58%;" onclick="openC(9)">
     <svg width="56" height="40" viewBox="0 0 56 40">
       <path d="M4 36 Q6 20 14 14 Q20 8 26 12 Q34 6 42 14 Q50 22 48 36Z" fill="#a09070" opacity=".78"/>
       <path d="M8 36 Q10 24 18 18 Q24 14 26 16" fill="none" stroke="#706050" stroke-width=".7" opacity=".4"/>
@@ -330,26 +381,42 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--paper);
       <ellipse cx="16" cy="20" rx="3.5" ry="1.6" fill="#4a7840" opacity=".5"/>
       <ellipse cx="32" cy="16" rx="2.6" ry="1.3" fill="#4a7840" opacity=".4"/>
     </svg>
-    <div class="lb">山石</div>
+    <div class="lb">石</div>
   </div>
 
-  <!-- 暗语输入 -->
+  <!-- unlock input -->
   <div id="ulk">
     <p>轻声说出那三个数字…</p>
     <input id="ui" type="text" inputmode="numeric" maxlength="3" placeholder="···"
       autocomplete="off" oninput="chkU(this.value)">
   </div>
 
-  <!-- 底栏 -->
+  <!-- bottom bar -->
   <div id="bar">
-    <button class="btn" onclick="togU()">彩蛋</button>
+    <button class="btn" onclick="togU()">解锁彩蛋</button>
     <button class="btn r" onclick="showLtr()">给你的信</button>
   </div>
 
   <div id="toast"><p id="toastp"></p></div>
+
+  <!-- ===== completion celebration ===== -->
+  <div id="celeb" onclick="hideCeleb()">
+    <div id="celeb-card">
+      <div class="celeb-hearts">
+        <span class="celeb-heart">♥</span>
+        <span class="celeb-heart">♥</span>
+        <span class="celeb-heart">♥</span>
+        <span class="celeb-heart">♥</span>
+        <span class="celeb-heart">♥</span>
+      </div>
+      <div id="celeb-title">十处都找到了</div>
+      <div id="celeb-sub">园子里的话，你都读到了</div>
+      <button id="celeb-dismiss">轻触消失</button>
+    </div>
+  </div>
 </div>
 
-<!-- ===== 情话卡片 ===== -->
+<!-- ===== card overlay ===== -->
 <div class="ov" id="cov" onclick="cls(event,'cov')">
   <div class="card">
     <button class="x" onclick="hide('cov')">×</button>
@@ -360,15 +427,15 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--paper);
   </div>
 </div>
 
-<!-- ===== 信件 ===== -->
+<!-- ===== letter overlay ===== -->
 <div class="ov" id="ltr" onclick="cls(event,'ltr')">
   <div class="card">
     <button class="x" onclick="hide('ltr')">×</button>
     <div class="lhd">
       <div class="seal">信</div>
-      <h2>致 · 你</h2>
+      <h2>致 · 雨萌</h2>
     </div>
-    <div class="lbdy">你好，
+    <div class="lbdy">雨萌宝宝，
 
 今天你打开了这个园子。
 园子里藏着十句话，
@@ -386,7 +453,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--paper);
   </div>
 </div>
 
-<!-- ===== 彩蛋：月夜场景 ===== -->
+<!-- ===== easter egg: moon night ===== -->
 <div id="egg-scene">
   <canvas id="egg-canvas"></canvas>
   <div id="egg-content">
@@ -397,37 +464,140 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--paper);
 </div>
 
 <script>
-// ===== 数据 =====
+// ===========================================================
+//  PART 1 — Canvas 2D Garden Drawing (from V7.1)
+// ===========================================================
+const cv = document.getElementById('main-cvs'), ctx = cv.getContext('2d');
+let W, H, dpr = Math.min(devicePixelRatio || 1, 2), time = 0;
+let groundY;
+
+// ===== Seeded Random =====
+let _s = 42;
+function srand(v) { _s = v | 0; }
+function rand() { _s = (_s * 16807) % 2147483647; return (_s - 1) / 2147483646; }
+function rr(a, b) { return a + rand() * (b - a); }
+function ri(a, b) { return Math.floor(rr(a, b)); }
+
+// ===== Scene Data =====
+let clouds = [], petals = [], butterflies = [], ripples = [];
+let bamboos = [], rocks = [], flowers = [], grassBlades = [];
+let distantTrees = [];
+let pondCX, pondCY, pondRX, pondRY;
+let tree1 = {}, tree2 = {};
+
+function regenerate() {
+  srand(42);
+  groundY = H * 0.6;
+  pondCX = W * 0.47; pondCY = H * 0.7; pondRX = W * 0.2; pondRY = H * 0.1;
+  tree1 = { x: W * 0.16, y: groundY + H * 0.02, scale: 1.15 };
+  tree2 = { x: W * 0.62, y: groundY - H * 0.03, scale: 0.95 };
+  clouds = [];
+  for (let i = 0; i < 6; i++) {
+    clouds.push({ x: rr(-W*0.1,W*1.1), y: rr(H*0.04,H*0.22), w: rr(W*0.08,W*0.18), h: rr(H*0.018,H*0.04), speed: rr(0.12,0.35), puffs: [] });
+    let c = clouds[i], n = ri(4,7);
+    for (let j = 0; j < n; j++) c.puffs.push({ ox: rr(-0.4,0.4), oy: rr(-0.3,0.3), rx: rr(0.25,0.5), ry: rr(0.3,0.6) });
+  }
+  petals = []; for (let i = 0; i < 50; i++) petals.push(newPetal());
+  butterflies = []; for (let i = 0; i < 3; i++) butterflies.push(newButterfly(i));
+  distantTrees = []; srand(333);
+  for (let i = 0; i < 20; i++) distantTrees.push({ x: rr(W*-0.02,W*1.02), y: H*0.38+Math.sin(i*0.7)*H*0.04+rr(-H*0.01,H*0.01), h: rr(H*0.03,H*0.07), w: rr(W*0.01,W*0.025), shade: rr(0,1) });
+  bamboos = [];
+  [{ cx:W*0.84,cy:groundY-H*0.01,n:5 },{ cx:W*0.89,cy:groundY-H*0.04,n:4 },{ cx:W*0.935,cy:groundY+H*0.01,n:4 }].forEach(cl=>{
+    for(let j=0;j<cl.n;j++){let b={x:cl.cx+rr(-W*0.012,W*0.012),baseY:cl.cy+rr(-H*0.005,H*0.005),h:rr(H*0.18,H*0.38),thick:rr(2,5),phase:rr(0,Math.PI*2),swayAmp:rr(1.5,3.5),leaves:[]};let lc=ri(8,14);for(let k=0;k<lc;k++){let t=rr(0.12,0.88),side=rand()>0.5?1:-1;b.leaves.push({t,side,len:rr(14,32),angle:side*rr(0.3,0.9),phase:rr(0,Math.PI*2),width:rr(4,8)})}bamboos.push(b)}
+  });
+  rocks = [];
+  [{x:W*0.33,y:groundY+H*0.04},{x:W*0.38,y:groundY+H*0.06},{x:W*0.43,y:groundY+H*0.02},{x:W*0.56,y:groundY+H*0.05},{x:W*0.60,y:groundY+H*0.03}].forEach(rp=>{
+    let r={x:rp.x,y:rp.y,w:rr(20,45),h:rr(18,42),hue:rr(28,48),sat:rr(12,28),lit:rr(58,72),shape:[],holes:[]};
+    let pts=ri(10,16);for(let i=0;i<pts;i++){let a=(i/pts)*Math.PI*2;r.shape.push({a,r:rr(0.55,1)})}
+    let nh=ri(1,3);for(let j=0;j<nh;j++)r.holes.push({cx:rr(-0.25,0.25),cy:rr(-0.25,0.25),rx:rr(0.06,0.16),ry:rr(0.08,0.2)});
+    rocks.push(r);
+  });
+  flowers = [];
+  for(let i=0;i<35;i++){let fx=rr(W*0.03,W*0.97),fy=groundY+rr(H*0.04,H*0.25);let dx=(fx-pondCX)/pondRX,dy=(fy-pondCY)/pondRY;if(dx*dx+dy*dy<1.3)continue;flowers.push({x:fx,y:fy,size:rr(2.5,6),color:['#FFB7C5','#FFD700','#FF85A2','#DDA0DD','#F0E68C','#FF6B6B','#87CEEB'][ri(0,7)],phase:rr(0,Math.PI*2),petals:ri(4,6)})}
+  grassBlades = []; srand(777);
+  for(let i=0;i<100;i++) grassBlades.push({x:rr(0,W),y:H*0.82+rr(0,H*0.18),h:rr(8,22),w:rr(0.8,2),g:ri(100,175),phase:rr(0,Math.PI*2)});
+  ripples = [];
+}
+
+function newPetal(){let from=rand()>0.5?tree1:tree2;return{x:from.x+rr(-70,70),y:from.y+rr(-60,20),vx:rr(-0.4,0.4),vy:rr(0.25,0.7),rot:rr(0,Math.PI*2),rotV:rr(-0.015,0.015),size:rr(2.5,6.5),alpha:rr(0.5,0.85),pink:rand()>0.3,swayPh:rr(0,Math.PI*2),swayAmp:rr(0.3,0.9),life:0,maxLife:rr(250,600)}}
+function newButterfly(idx){let cx=W*(0.25+idx*0.22),cy=H*(0.42+idx*0.08);return{cx,cy,angle:rr(0,Math.PI*2),rx:rr(35,70),ry:rr(15,35),speed:rr(0.006,0.013),wingPh:rr(0,Math.PI*2),wingSpd:rr(0.07,0.11),x:cx,y:cy,size:rr(5,9),c1:['#FFB347','#FF85A2','#87CEEB'][idx],c2:['#FF6347','#E06090','#5F9EA0'][idx],dir:1}}
+
+function drawSky(){let g=ctx.createLinearGradient(0,0,0,groundY+H*0.1);g.addColorStop(0,'#4BA3D4');g.addColorStop(0.15,'#6BB8E0');g.addColorStop(0.35,'#8ECAE6');g.addColorStop(0.55,'#B0DAF0');g.addColorStop(0.75,'#D0E8F5');g.addColorStop(1,'#E4F3FA');ctx.fillStyle=g;ctx.fillRect(0,0,W,H)}
+function drawSun(){let sx=W*0.15,sy=H*0.1,sr=Math.min(W,H)*0.065;let g0=ctx.createRadialGradient(sx,sy,sr,sx,sy,sr*6);g0.addColorStop(0,'rgba(255,250,210,0.25)');g0.addColorStop(0.3,'rgba(255,245,190,0.1)');g0.addColorStop(1,'rgba(255,245,190,0)');ctx.fillStyle=g0;ctx.fillRect(sx-sr*6,sy-sr*6,sr*12,sr*12);let g1=ctx.createRadialGradient(sx,sy,sr*0.5,sx,sy,sr*3);g1.addColorStop(0,'rgba(255,248,200,0.45)');g1.addColorStop(0.5,'rgba(255,240,170,0.15)');g1.addColorStop(1,'rgba(255,240,170,0)');ctx.fillStyle=g1;ctx.fillRect(sx-sr*3,sy-sr*3,sr*6,sr*6);ctx.save();ctx.translate(sx,sy);ctx.rotate(time*0.0003);ctx.globalAlpha=0.06;for(let i=0;i<12;i++){let a=(i/12)*Math.PI*2;ctx.fillStyle='#FFF8D0';ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(Math.cos(a-0.04)*sr*4.5,Math.sin(a-0.04)*sr*4.5);ctx.lineTo(Math.cos(a+0.04)*sr*4.5,Math.sin(a+0.04)*sr*4.5);ctx.closePath();ctx.fill()}ctx.restore();let g2=ctx.createRadialGradient(sx-sr*0.08,sy-sr*0.08,0,sx,sy,sr);g2.addColorStop(0,'#FFFFF0');g2.addColorStop(0.5,'#FFF8D0');g2.addColorStop(0.85,'#FFE890');g2.addColorStop(1,'rgba(255,220,100,0.15)');ctx.fillStyle=g2;ctx.beginPath();ctx.arc(sx,sy,sr,0,Math.PI*2);ctx.fill()}
+function drawClouds(){clouds.forEach(c=>{c.x+=c.speed;if(c.x-c.w*0.5>W+50)c.x=-c.w;ctx.save();ctx.globalAlpha=0.75;c.puffs.forEach(p=>{let px=c.x+p.ox*c.w,py=c.y+p.oy*c.h,prx=p.rx*c.w,pry=p.ry*c.h;ctx.fillStyle='rgba(255,255,255,0.85)';ctx.beginPath();ctx.ellipse(px,py,prx,pry,0,0,Math.PI*2);ctx.fill()});ctx.restore()})}
+function drawDistantMountains(){ctx.fillStyle='rgba(140,185,220,0.35)';ctx.beginPath();ctx.moveTo(-20,H*0.5);for(let x=-20;x<=W+20;x+=2){let y=H*0.38+Math.sin(x*0.0025)*H*0.05+Math.sin(x*0.006+1.5)*H*0.025+Math.sin(x*0.0012)*H*0.035;ctx.lineTo(x,y)}ctx.lineTo(W+20,H*0.55);ctx.lineTo(-20,H*0.55);ctx.closePath();ctx.fill();ctx.fillStyle='rgba(110,180,140,0.3)';ctx.beginPath();ctx.moveTo(-20,H*0.52);for(let x=-20;x<=W+20;x+=2){let y=H*0.43+Math.sin(x*0.004+2)*H*0.035+Math.sin(x*0.01+0.5)*H*0.015;ctx.lineTo(x,y)}ctx.lineTo(W+20,H*0.58);ctx.lineTo(-20,H*0.58);ctx.closePath();ctx.fill()}
+function drawDistantTreeSilhouettes(){ctx.save();distantTrees.forEach(t=>{let alpha=0.25+t.shade*0.15;ctx.fillStyle=`rgba(60,130,75,${alpha})`;ctx.beginPath();ctx.moveTo(t.x,t.y);ctx.lineTo(t.x-t.w,t.y+t.h);ctx.lineTo(t.x+t.w,t.y+t.h);ctx.closePath();ctx.fill();ctx.fillStyle=`rgba(80,70,50,${alpha*0.7})`;ctx.fillRect(t.x-1,t.y+t.h,2,t.h*0.3)});ctx.restore()}
+function drawGround(){let g=ctx.createLinearGradient(0,groundY,0,H);g.addColorStop(0,'#8BC34A');g.addColorStop(0.12,'#7CB840');g.addColorStop(0.3,'#6DA835');g.addColorStop(0.55,'#5E9A2A');g.addColorStop(0.8,'#4E8C22');g.addColorStop(1,'#3D7A18');ctx.fillStyle=g;ctx.beginPath();ctx.moveTo(-20,groundY);for(let x=-20;x<=W+20;x+=2){let y=groundY+Math.sin(x*0.003+0.5)*H*0.015+Math.sin(x*0.008)*H*0.008;ctx.lineTo(x,y)}ctx.lineTo(W+20,H+20);ctx.lineTo(-20,H+20);ctx.closePath();ctx.fill();ctx.save();ctx.globalAlpha=0.05;srand(111);for(let i=0;i<400;i++){let gx=rr(0,W),gy=rr(groundY+H*0.02,H);ctx.fillStyle=rand()>0.6?'#FFFFAA':rand()>0.3?'#FFF':'#000';ctx.fillRect(gx,gy,rr(1,3),rr(1,3))}ctx.restore()}
+function drawStonePath(){ctx.save();srand(456);for(let i=0;i<9;i++){let t=i/8,px=W*0.06+t*W*0.28,py=groundY+H*0.06+Math.sin(t*2.5)*8+t*H*0.06,sw=10+rand()*8,sh=7+rand()*5,angle=Math.sin(t*3)*0.12;ctx.save();ctx.translate(px,py);ctx.rotate(angle);let sg=ctx.createLinearGradient(-sw/2,0,sw/2,0);sg.addColorStop(0,'#B5A898');sg.addColorStop(0.5,'#CCC0B0');sg.addColorStop(1,'#A89888');ctx.fillStyle=sg;ctx.beginPath();ctx.ellipse(0,0,sw/2,sh/2,0,0,Math.PI*2);ctx.fill();ctx.strokeStyle='rgba(90,70,50,0.15)';ctx.lineWidth=0.5;ctx.stroke();ctx.restore()}ctx.restore()}
+function drawPond(){ctx.save();let eg=ctx.createRadialGradient(pondCX,pondCY,pondRX*0.85,pondCX,pondCY,pondRX*1.15);eg.addColorStop(0,'rgba(90,160,100,0.3)');eg.addColorStop(0.5,'rgba(80,140,80,0.2)');eg.addColorStop(1,'rgba(80,140,80,0)');ctx.fillStyle=eg;ctx.beginPath();ctx.ellipse(pondCX,pondCY,pondRX*1.12,pondRY*1.2,0,0,Math.PI*2);ctx.fill();let wg=ctx.createRadialGradient(pondCX-pondRX*0.15,pondCY-pondRY*0.2,0,pondCX,pondCY,pondRX);wg.addColorStop(0,'rgba(110,200,230,0.7)');wg.addColorStop(0.3,'rgba(90,190,220,0.6)');wg.addColorStop(0.7,'rgba(70,175,195,0.5)');wg.addColorStop(1,'rgba(55,160,175,0.35)');ctx.fillStyle=wg;ctx.beginPath();ctx.ellipse(pondCX,pondCY,pondRX,pondRY,0,0,Math.PI*2);ctx.fill();ctx.strokeStyle='rgba(70,110,70,0.2)';ctx.lineWidth=1.5;ctx.stroke();drawWaterEffects();drawLotus();drawReflections();ctx.restore()}
+function drawWaterEffects(){ctx.save();ctx.beginPath();ctx.ellipse(pondCX,pondCY,pondRX,pondRY,0,0,Math.PI*2);ctx.clip();for(let i=0;i<4;i++){ctx.strokeStyle=`rgba(255,255,255,${0.08+i*0.02})`;ctx.lineWidth=0.6;ctx.beginPath();let baseY=pondCY-pondRY*0.4+i*pondRY*0.25;for(let x=pondCX-pondRX;x<=pondCX+pondRX;x+=2){let y=baseY+Math.sin(x*0.025+time*0.018+i*1.8)*2.5+Math.sin(x*0.06+time*0.012)*1.2;if(x===pondCX-pondRX)ctx.moveTo(x,y);else ctx.lineTo(x,y)}ctx.stroke()}if(time%80===0)ripples.push({x:pondCX+rr(-pondRX*0.5,pondRX*0.5),y:pondCY+rr(-pondRY*0.3,pondRY*0.3),r:0,maxR:rr(12,30),alpha:0.4});for(let i=ripples.length-1;i>=0;i--){let r=ripples[i];r.r+=0.25;r.alpha-=0.003;if(r.alpha<=0){ripples.splice(i,1);continue}ctx.strokeStyle=`rgba(255,255,255,${r.alpha})`;ctx.lineWidth=0.7;ctx.beginPath();ctx.ellipse(r.x,r.y,r.r,r.r*0.35,0,0,Math.PI*2);ctx.stroke()}ctx.globalAlpha=0.08+Math.sin(time*0.03)*0.04;for(let i=0;i<8;i++){let sx=pondCX+Math.sin(time*0.008+i*1.3)*pondRX*0.7,sy=pondCY+Math.cos(time*0.006+i*2.1)*pondRY*0.5;ctx.fillStyle='rgba(255,255,255,1)';ctx.beginPath();ctx.ellipse(sx,sy,rr(2,5),rr(1,2.5),time*0.01+i,0,Math.PI*2);ctx.fill()}ctx.restore()}
+function drawLotus(){srand(789);[{x:-0.55,y:0.1},{x:0.05,y:-0.35},{x:0.35,y:0.15},{x:-0.2,y:-0.1},{x:0.55,y:-0.05},{x:-0.7,y:0},{x:0.15,y:0.35}].forEach((p,i)=>{let lx=pondCX+p.x*pondRX,ly=pondCY+p.y*pondRY,lr=rr(10,20);ctx.save();ctx.translate(lx,ly);ctx.rotate(rr(-0.3,0.3));let lg=ctx.createRadialGradient(0,0,0,0,0,lr);lg.addColorStop(0,'rgba(50,160,55,0.75)');lg.addColorStop(0.7,'rgba(40,135,45,0.6)');lg.addColorStop(1,'rgba(30,115,35,0.35)');ctx.fillStyle=lg;ctx.beginPath();ctx.ellipse(0,0,lr,lr*0.65,0,0,Math.PI*2);ctx.fill();ctx.strokeStyle='rgba(30,80,30,0.25)';ctx.lineWidth=0.5;ctx.beginPath();ctx.moveTo(-lr*0.7,0);ctx.lineTo(lr*0.7,0);ctx.stroke();ctx.restore();if(i===1||i===3||i===6)drawLotusFlower(lx+rr(-3,3),ly-rr(6,14),rr(5,9))})}
+function drawLotusFlower(x,y,sz){ctx.save();ctx.translate(x,y);for(let i=0;i<8;i++){let a=(i/8)*Math.PI*2-Math.PI/2,px=Math.cos(a)*sz*0.4,py=Math.sin(a)*sz*0.4;ctx.fillStyle=i%2===0?'rgba(255,190,205,0.9)':'rgba(255,225,235,0.85)';ctx.beginPath();ctx.ellipse(px,py,sz*0.32,sz*0.18,a,0,Math.PI*2);ctx.fill()}ctx.fillStyle='rgba(255,215,80,0.9)';ctx.beginPath();ctx.arc(0,0,sz*0.15,0,Math.PI*2);ctx.fill();ctx.restore()}
+function drawReflections(){ctx.save();ctx.globalAlpha=0.18;[tree1,tree2].forEach(t=>{let reflY=2*pondCY-t.y;if(Math.abs(t.x-pondCX)<pondRX*1.1){ctx.fillStyle='rgba(255,180,195,0.5)';ctx.beginPath();ctx.ellipse(t.x,reflY+10,30*t.scale,15*t.scale,0,0,Math.PI*2);ctx.fill()}});let pavX=W*0.78,pavY=groundY-H*0.12;if(Math.abs(pavX-pondCX)<pondRX*1.5){ctx.fillStyle='rgba(180,60,50,0.3)';ctx.beginPath();ctx.ellipse(pavX,2*pondCY-pavY,20,8,0,0,Math.PI*2);ctx.fill()}ctx.restore()}
+function drawBridge(){ctx.save();let bx=W*0.34,by=groundY+H*0.05,bw=W*0.17,archH=H*0.055;ctx.fillStyle='rgba(50,40,30,0.08)';ctx.beginPath();ctx.ellipse(bx,by+10,bw*0.48,5,0,0,Math.PI*2);ctx.fill();ctx.fillStyle='rgba(80,155,165,0.2)';ctx.beginPath();ctx.ellipse(bx,by+8,bw*0.38,archH*0.45,0,0,Math.PI);ctx.fill();let bg=ctx.createLinearGradient(bx-bw*0.5,by-archH,bx+bw*0.5,by+6);bg.addColorStop(0,'#C8B8A2');bg.addColorStop(0.3,'#D4C8B2');bg.addColorStop(0.7,'#CCBFA8');bg.addColorStop(1,'#B8A890');ctx.fillStyle=bg;ctx.beginPath();ctx.moveTo(bx-bw*0.48,by+6);ctx.quadraticCurveTo(bx-bw*0.48,by-archH*0.25,bx,by-archH);ctx.quadraticCurveTo(bx+bw*0.48,by-archH*0.25,bx+bw*0.48,by+6);ctx.lineTo(bx+bw*0.48,by+9);ctx.quadraticCurveTo(bx+bw*0.48,by-archH*0.15,bx,by-archH+3);ctx.quadraticCurveTo(bx-bw*0.48,by-archH*0.15,bx-bw*0.48,by+9);ctx.closePath();ctx.fill();ctx.strokeStyle='rgba(100,80,60,0.15)';ctx.lineWidth=0.5;for(let i=0;i<5;i++){let t=0.12+i*0.16,ly=by-archH+archH*t+6*(1-t),hw=bw*0.48*(0.35+t*0.65);ctx.beginPath();ctx.moveTo(bx-hw,ly);ctx.lineTo(bx+hw,ly);ctx.stroke()}ctx.strokeStyle='#A89880';ctx.lineWidth=1.5;ctx.lineCap='round';ctx.beginPath();ctx.moveTo(bx-bw*0.46,by+5);ctx.quadraticCurveTo(bx-bw*0.46,by-archH*0.35,bx-bw*0.08,by-archH+3);ctx.stroke();ctx.beginPath();ctx.moveTo(bx+bw*0.46,by+5);ctx.quadraticCurveTo(bx+bw*0.46,by-archH*0.35,bx+bw*0.08,by-archH+3);ctx.stroke();for(let i=0;i<5;i++){let t=0.15+i*0.17,sinT=Math.sin(t*Math.PI),px=bx-bw*0.48+bw*t,py=by-archH*sinT*0.85+6*(1-sinT*0.85);ctx.fillStyle='#A89880';ctx.fillRect(px-1.2,py-7,2.4,7);ctx.fillStyle='#C0B098';ctx.beginPath();ctx.arc(px,py-7,2,0,Math.PI*2);ctx.fill()}ctx.restore()}
+function drawCherryTree(t){ctx.save();ctx.translate(t.x,t.y);let s=t.scale;ctx.scale(s,s);ctx.fillStyle='rgba(30,50,20,0.08)';ctx.beginPath();ctx.ellipse(5,62,55,12,0.1,0,Math.PI*2);ctx.fill();let tg=ctx.createLinearGradient(-6,0,6,0);tg.addColorStop(0,'#5A3520');tg.addColorStop(0.3,'#7A4E30');tg.addColorStop(0.7,'#6B4226');tg.addColorStop(1,'#4A2A18');ctx.strokeStyle=tg;ctx.lineCap='round';ctx.lineWidth=9;ctx.beginPath();ctx.moveTo(0,60);ctx.bezierCurveTo(-3,40,-6,20,-10,5);ctx.bezierCurveTo(-12,-2,-14,-5,-16,0);ctx.stroke();[{sx:-13,sy:2,cx1:-30,cy1:-15,cx2:-55,cy2:-25,ex:-72,ey:-42,w:5},{sx:-11,sy:8,cx1:-28,cy1:-5,cx2:-45,cy2:-15,ex:-62,ey:-30,w:4},{sx:-6,sy:0,cx1:10,cy1:-20,cx2:25,cy2:-35,ex:42,ey:-55,w:5},{sx:-8,sy:12,cx1:8,cy1:0,cx2:22,cy2:-8,ex:38,ey:-28,w:3.5},{sx:-15,sy:-2,cx1:-28,cy1:-20,cx2:-22,cy2:-35,ex:-20,ey:-52,w:3},{sx:-14,sy:0,cx1:-40,cy1:-30,cx2:-75,cy2:-38,ex:-85,ey:-48,w:3.5},{sx:0,sy:-3,cx1:15,cy1:-25,cx2:30,cy2:-50,ex:28,ey:-68,w:3}].forEach(b=>{ctx.lineWidth=b.w;ctx.strokeStyle='#6B4226';ctx.beginPath();ctx.moveTo(b.sx,b.sy);ctx.bezierCurveTo(b.cx1,b.cy1,b.cx2,b.cy2,b.ex,b.ey);ctx.stroke()});srand(t.x*100+t.y);[{x:-72,y:-42,r:32},{x:-62,y:-30,r:26},{x:42,y:-55,r:30},{x:38,y:-28,r:24},{x:-20,y:-52,r:22},{x:-85,y:-48,r:20},{x:28,y:-68,r:18},{x:-50,y:-35,r:18},{x:5,y:-20,r:22},{x:-35,y:-50,r:16},{x:15,y:-50,r:20},{x:-60,y:-42,r:15}].forEach(bp=>{let cnt=ri(15,25);for(let i=0;i<cnt;i++){let a=rr(0,Math.PI*2),d=rr(0,bp.r),ox=Math.cos(a)*d,oy=Math.sin(a)*d*0.7,r=rr(3,6.5),alpha=rr(0.35,0.75);ctx.fillStyle=rand()>0.35?`rgba(255,${175+ri(0,30)},${190+ri(0,20)},${alpha})`:`rgba(255,${235+ri(0,15)},${240+ri(0,10)},${alpha})`;ctx.beginPath();ctx.arc(bp.x+ox,bp.y+oy,r,0,Math.PI*2);ctx.fill()}});ctx.restore()}
+function drawAllTrees(){drawCherryTree(tree1);drawCherryTree(tree2)}
+function drawPavilion(){let px=W*0.78,py=groundY-H*0.12,s=Math.min(W,H)*0.11;ctx.save();let hg=ctx.createRadialGradient(px,py+s*0.6,0,px,py+s*0.6,s*0.9);hg.addColorStop(0,'#6DA832');hg.addColorStop(0.7,'#5E9A28');hg.addColorStop(1,'rgba(94,154,40,0)');ctx.fillStyle=hg;ctx.beginPath();ctx.ellipse(px,py+s*0.6,s*0.85,s*0.22,0,0,Math.PI*2);ctx.fill();ctx.fillStyle='#D0C4AE';ctx.beginPath();ctx.ellipse(px,py+s*0.5,s*0.65,s*0.18,0,0,Math.PI*2);ctx.fill();ctx.strokeStyle='rgba(100,80,60,0.2)';ctx.lineWidth=1;ctx.stroke();ctx.fillStyle='#DCD0BC';ctx.beginPath();ctx.ellipse(px,py+s*0.48,s*0.62,s*0.15,0,Math.PI,Math.PI*2);ctx.fill();ctx.fillStyle='#C8BBA5';roundRect(px-s*0.12,py+s*0.55,s*0.24,s*0.08,2);ctx.fillStyle='#BCAFA0';roundRect(px-s*0.15,py+s*0.61,s*0.3,s*0.04,2);let pillarBot=py+s*0.48,pillarTop=py-s*0.2;for(let i=0;i<6;i++){let a=(i/6)*Math.PI*2-Math.PI/2,cx=px+Math.cos(a)*s*0.42;ctx.fillStyle='rgba(120,30,30,0.1)';ctx.fillRect(cx-2,pillarTop+1,7,pillarBot-pillarTop);let pg=ctx.createLinearGradient(cx-3,0,cx+3,0);pg.addColorStop(0,'#B83220');pg.addColorStop(0.35,'#D44030');pg.addColorStop(0.65,'#D44030');pg.addColorStop(1,'#9A2818');ctx.fillStyle=pg;ctx.fillRect(cx-2.5,pillarTop,5,pillarBot-pillarTop);ctx.fillStyle='#D0C0A8';ctx.fillRect(cx-4,pillarBot-3,8,3)}drawHexRoof(px,pillarTop-2,s*0.68,s*0.38);drawHexRoof(px,pillarTop-s*0.52,s*0.48,s*0.28);ctx.fillStyle='#8B7355';ctx.beginPath();ctx.moveTo(px,pillarTop-s*0.95);ctx.lineTo(px-3,pillarTop-s*0.82);ctx.lineTo(px+3,pillarTop-s*0.82);ctx.closePath();ctx.fill();ctx.fillStyle='#DAA520';ctx.beginPath();ctx.arc(px,pillarTop-s*0.97,3,0,Math.PI*2);ctx.fill();let lx=px+s*0.32,ly=pillarTop-s*0.1,ls=s*0.08;ctx.strokeStyle='rgba(160,50,50,0.4)';ctx.lineWidth=0.8;ctx.beginPath();ctx.moveTo(lx,ly-ls*3);ctx.lineTo(lx,ly-ls);ctx.stroke();let llg=ctx.createRadialGradient(lx,ly,0,lx,ly,ls);llg.addColorStop(0,'rgba(230,90,70,0.6)');llg.addColorStop(1,'rgba(200,70,55,0.4)');ctx.fillStyle=llg;ctx.beginPath();ctx.ellipse(lx,ly,ls*0.5,ls*0.8,0,0,Math.PI*2);ctx.fill();ctx.fillStyle='rgba(190,160,110,0.6)';ctx.fillRect(lx-ls*0.35,ly-ls,ls*0.7,2);ctx.fillRect(lx-ls*0.35,ly+ls-2,ls*0.7,2);ctx.strokeStyle='rgba(190,160,110,0.4)';ctx.lineWidth=0.6;ctx.beginPath();ctx.moveTo(lx,ly+ls);ctx.lineTo(lx,ly+ls*1.8);ctx.stroke();ctx.restore()}
+function drawHexRoof(cx,cy,radius,height){let sides=6,eaveR=radius*1.15;ctx.save();ctx.globalAlpha=0.08;ctx.fillStyle='#000';ctx.beginPath();for(let i=0;i<sides;i++){let a=(i/sides)*Math.PI*2-Math.PI/2,x=cx+Math.cos(a)*eaveR+3,y=cy+Math.sin(a)*eaveR*0.3+height*0.25+3;if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y)}ctx.closePath();ctx.fill();ctx.restore();ctx.beginPath();let topY=cy-height*0.45,botY=cy+height*0.25;for(let i=0;i<sides;i++){let a=(i/sides)*Math.PI*2-Math.PI/2,x=cx+Math.cos(a)*eaveR,y=cy+Math.sin(a)*eaveR*0.3+height*0.25;if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y)}ctx.closePath();let rg=ctx.createLinearGradient(cx,topY,cx,botY);rg.addColorStop(0,'#606060');rg.addColorStop(0.4,'#787878');rg.addColorStop(1,'#959595');ctx.fillStyle=rg;ctx.fill();ctx.strokeStyle='rgba(50,50,50,0.2)';ctx.lineWidth=0.8;ctx.stroke();ctx.strokeStyle='rgba(70,55,40,0.2)';ctx.lineWidth=0.7;for(let i=0;i<sides;i++){let a=(i/sides)*Math.PI*2-Math.PI/2,ex=cx+Math.cos(a)*eaveR,ey=cy+Math.sin(a)*eaveR*0.3+height*0.25;ctx.beginPath();ctx.moveTo(cx,topY+height*0.15);ctx.quadraticCurveTo((cx+ex)/2,(topY+ey)/2-3,ex,ey);ctx.stroke()}ctx.strokeStyle='#787878';ctx.lineWidth=2;ctx.lineCap='round';for(let i=0;i<sides;i++){let a=(i/sides)*Math.PI*2-Math.PI/2,ex=cx+Math.cos(a)*eaveR,ey=cy+Math.sin(a)*eaveR*0.3+height*0.25,nx=Math.cos(a)*8,ny=Math.sin(a)*3-5;ctx.beginPath();ctx.moveTo(ex,ey);ctx.quadraticCurveTo(ex+nx*0.5,ey+ny*0.5-3,ex+nx,ey+ny);ctx.stroke();ctx.fillStyle='#A0A0A0';ctx.beginPath();ctx.arc(ex+nx,ey+ny,1.2,0,Math.PI*2);ctx.fill()}}
+function roundRect(x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.arcTo(x+w,y,x+w,y+r,r);ctx.lineTo(x+w,y+h-r);ctx.arcTo(x+w,y+h,x+w-r,y+h,r);ctx.lineTo(x+r,y+h);ctx.arcTo(x,y+h,x,y+h-r,r);ctx.lineTo(x+r,y);ctx.arcTo(x,y,x+r,y,r);ctx.closePath();ctx.fill()}
+function drawBamboos(){bamboos.forEach(b=>{let topX=b.x+Math.sin(time*0.0012+b.phase)*b.swayAmp;ctx.save();let segs=10,segH=b.h/segs;for(let i=0;i<segs;i++){let t0=i/segs,t1=(i+1)/segs,x0=b.x+(topX-b.x)*t0,x1=b.x+(topX-b.x)*t1,y0=b.baseY-i*segH,y1=b.baseY-(i+1)*segH;let bg=ctx.createLinearGradient(x0-b.thick/2,0,x0+b.thick/2,0);bg.addColorStop(0,'#2D8835');bg.addColorStop(0.35,'#4DB855');bg.addColorStop(0.65,'#42AD4A');bg.addColorStop(1,'#2D8835');ctx.fillStyle=bg;ctx.beginPath();ctx.moveTo(x0-b.thick/2,y0);ctx.lineTo(x1-b.thick*0.45,y1);ctx.lineTo(x1+b.thick*0.45,y1);ctx.lineTo(x0+b.thick/2,y0);ctx.closePath();ctx.fill();ctx.fillStyle='rgba(30,75,30,0.4)';ctx.fillRect(x0-b.thick/2-1,y0,b.thick+2,1.5)}b.leaves.forEach(l=>{let t=l.t,lx=b.x+(topX-b.x)*t,ly=b.baseY-t*b.h,sway=Math.sin(time*0.0018+l.phase)*2;ctx.save();ctx.translate(lx,ly);ctx.rotate(l.angle+sway*0.05);let lg=ctx.createLinearGradient(0,0,l.len*(l.side>0?1:-1),0);lg.addColorStop(0,'rgba(45,155,55,0.85)');lg.addColorStop(0.5,'rgba(65,185,72,0.75)');lg.addColorStop(1,'rgba(50,145,55,0.45)');ctx.fillStyle=lg;ctx.beginPath();ctx.moveTo(0,0);ctx.quadraticCurveTo(l.len*0.4,-l.width*0.45,l.len,sway*0.5);ctx.quadraticCurveTo(l.len*0.4,l.width*0.45,0,0);ctx.fill();ctx.strokeStyle='rgba(35,100,40,0.3)';ctx.lineWidth=0.3;ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(l.len*0.9,sway*0.3);ctx.stroke();ctx.restore()});ctx.restore()})}
+function drawRocks(){rocks.forEach(r=>{ctx.save();ctx.translate(r.x,r.y);ctx.fillStyle=`hsl(${r.hue},${r.sat}%,${r.lit}%)`;ctx.beginPath();r.shape.forEach((pt,i)=>{let px=Math.cos(pt.a)*r.w*0.5*pt.r,py=Math.sin(pt.a)*r.h*0.5*pt.r;if(i===0)ctx.moveTo(px,py);else ctx.lineTo(px,py)});ctx.closePath();ctx.fill();ctx.fillStyle='rgba(255,255,255,0.12)';ctx.beginPath();ctx.ellipse(-r.w*0.08,-r.h*0.12,r.w*0.18,r.h*0.13,-0.3,0,Math.PI*2);ctx.fill();ctx.fillStyle='rgba(40,50,30,0.1)';ctx.beginPath();ctx.ellipse(r.w*0.05,r.h*0.35,r.w*0.4,r.h*0.08,0,0,Math.PI*2);ctx.fill();r.holes.forEach(h=>{ctx.fillStyle='rgba(40,50,40,0.4)';ctx.beginPath();ctx.ellipse(h.cx*r.w,h.cy*r.h,h.rx*r.w,h.ry*r.h,0,0,Math.PI*2);ctx.fill();ctx.fillStyle='rgba(20,30,20,0.2)';ctx.beginPath();ctx.ellipse(h.cx*r.w-1,h.cy*r.h-1,h.rx*r.w*0.6,h.ry*r.h*0.6,0,0,Math.PI*2);ctx.fill()});ctx.restore()})}
+function drawPetals(){petals.forEach((p,i)=>{p.x+=p.vx+Math.sin(time*0.008+p.swayPh)*p.swayAmp;p.y+=p.vy+Math.sin(time*0.005+p.swayPh*1.3)*0.15;p.rot+=p.rotV;p.life++;if(p.life>p.maxLife||p.y>H*0.92||p.x<-30||p.x>W+30){petals[i]=newPetal();return}let fadeIn=Math.min(1,p.life/30),fadeOut=p.life>p.maxLife-60?(p.maxLife-p.life)/60:1,alpha=p.alpha*fadeIn*Math.max(0,fadeOut);ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.rot);ctx.fillStyle=p.pink?`rgba(255,${178+Math.floor(Math.sin(p.rot)*15)},${195+Math.floor(Math.cos(p.rot)*15)},${alpha})`:`rgba(255,${238+Math.floor(Math.sin(p.rot)*10)},${242+Math.floor(Math.cos(p.rot)*8)},${alpha})`;ctx.beginPath();ctx.moveTo(0,-p.size);ctx.bezierCurveTo(p.size*0.7,-p.size*0.4,p.size*0.5,p.size*0.5,0,p.size);ctx.bezierCurveTo(-p.size*0.5,p.size*0.5,-p.size*0.7,-p.size*0.4,0,-p.size);ctx.fill();ctx.restore()})}
+function drawButterflies(){butterflies.forEach(b=>{b.angle+=b.speed;b.wingPh+=b.wingSpd;let prevX=b.x;b.x=b.cx+Math.cos(b.angle)*b.rx+Math.sin(b.angle*2.3)*12;b.y=b.cy+Math.sin(b.angle*1.4)*b.ry+Math.cos(b.angle*2.7)*6;b.dir=b.x>prevX?1:-1;let wingOpen=Math.cos(b.wingPh)*0.75+0.25,ws=b.size;ctx.save();ctx.translate(b.x,b.y);ctx.scale(b.dir,1);ctx.globalAlpha=0.88;ctx.fillStyle=b.c1;ctx.save();ctx.scale(wingOpen,1);ctx.beginPath();ctx.moveTo(0,0);ctx.bezierCurveTo(-ws*1.3,-ws*0.9,-ws*1.6,-ws*0.15,-ws*0.4,ws*0.25);ctx.bezierCurveTo(-ws*0.2,ws*0.08,0,0,0,0);ctx.fill();ctx.restore();ctx.save();ctx.scale(-wingOpen,1);ctx.beginPath();ctx.moveTo(0,0);ctx.bezierCurveTo(-ws*1.3,-ws*0.9,-ws*1.6,-ws*0.15,-ws*0.4,ws*0.25);ctx.bezierCurveTo(-ws*0.2,ws*0.08,0,0,0,0);ctx.fill();ctx.restore();ctx.fillStyle=b.c2;ctx.save();ctx.scale(wingOpen,1);ctx.beginPath();ctx.moveTo(0,ws*0.08);ctx.bezierCurveTo(-ws*0.9,ws*0.35,-ws*1.1,ws*0.85,-ws*0.2,ws*0.7);ctx.bezierCurveTo(-ws*0.05,ws*0.5,0,ws*0.25,0,ws*0.08);ctx.fill();ctx.restore();ctx.save();ctx.scale(-wingOpen,1);ctx.beginPath();ctx.moveTo(0,ws*0.08);ctx.bezierCurveTo(-ws*0.9,ws*0.35,-ws*1.1,ws*0.85,-ws*0.2,ws*0.7);ctx.bezierCurveTo(-ws*0.05,ws*0.5,0,ws*0.25,0,ws*0.08);ctx.fill();ctx.restore();ctx.fillStyle='rgba(255,255,255,0.45)';ctx.save();ctx.scale(wingOpen,1);ctx.beginPath();ctx.arc(-ws*0.75,-ws*0.25,ws*0.18,0,Math.PI*2);ctx.fill();ctx.restore();ctx.save();ctx.scale(-wingOpen,1);ctx.beginPath();ctx.arc(-ws*0.75,-ws*0.25,ws*0.18,0,Math.PI*2);ctx.fill();ctx.restore();ctx.globalAlpha=1;ctx.fillStyle='#2C2C2C';ctx.beginPath();ctx.ellipse(0,ws*0.15,1,ws*0.3,0,0,Math.PI*2);ctx.fill();ctx.strokeStyle='#2C2C2C';ctx.lineWidth=0.5;ctx.beginPath();ctx.moveTo(-0.5,-ws*0.12);ctx.quadraticCurveTo(-ws*0.2,-ws*0.7,-ws*0.28,-ws*0.9);ctx.stroke();ctx.beginPath();ctx.moveTo(0.5,-ws*0.12);ctx.quadraticCurveTo(ws*0.2,-ws*0.7,ws*0.28,-ws*0.9);ctx.stroke();ctx.fillStyle='#2C2C2C';ctx.beginPath();ctx.arc(-ws*0.28,-ws*0.9,0.8,0,Math.PI*2);ctx.fill();ctx.beginPath();ctx.arc(ws*0.28,-ws*0.9,0.8,0,Math.PI*2);ctx.fill();ctx.restore()})}
+function drawGroundFlowers(){flowers.forEach(f=>{let sway=Math.sin(time*0.0015+f.phase)*1.5;ctx.strokeStyle='rgba(55,115,35,0.45)';ctx.lineWidth=0.8;ctx.lineCap='round';ctx.beginPath();ctx.moveTo(f.x,f.y);ctx.quadraticCurveTo(f.x+sway*0.5,f.y-f.size*2.5,f.x+sway,f.y-f.size*3.5);ctx.stroke();let fx=f.x+sway,fy=f.y-f.size*3.5;ctx.fillStyle=f.color;for(let i=0;i<f.petals;i++){let a=(i/f.petals)*Math.PI*2;ctx.beginPath();ctx.ellipse(fx+Math.cos(a)*f.size*0.35,fy+Math.sin(a)*f.size*0.35,f.size*0.3,f.size*0.2,a,0,Math.PI*2);ctx.fill()}ctx.fillStyle='rgba(255,215,80,0.75)';ctx.beginPath();ctx.arc(fx,fy,f.size*0.18,0,Math.PI*2);ctx.fill()})}
+function drawForegroundGrass(){grassBlades.forEach(g=>{let sway=Math.sin(time*0.0015+g.phase)*2.5;ctx.strokeStyle=`rgba(${35+g.g*0.2|0},${g.g},${20+g.g*0.1|0},0.45)`;ctx.lineWidth=g.w;ctx.lineCap='round';ctx.beginPath();ctx.moveTo(g.x,g.y);ctx.quadraticCurveTo(g.x+sway,g.y-g.h*0.6,g.x+sway*1.3,g.y-g.h);ctx.stroke()})}
+function drawWarmOverlay(){ctx.save();ctx.globalAlpha=0.06;let wg=ctx.createRadialGradient(W*0.15,H*0.1,0,W*0.4,H*0.35,W*0.9);wg.addColorStop(0,'#FFF0B0');wg.addColorStop(0.4,'#FFE890');wg.addColorStop(1,'rgba(255,232,144,0)');ctx.fillStyle=wg;ctx.fillRect(0,0,W,H);ctx.globalAlpha=0.025+Math.sin(time*0.008)*0.01;let sx=W*0.15,sy=H*0.1;for(let i=0;i<5;i++){let angle=0.5+i*0.35+Math.sin(time*0.003+i)*0.08,len=W*0.8;ctx.fillStyle='rgba(255,250,200,1)';ctx.beginPath();ctx.moveTo(sx,sy);ctx.lineTo(sx+Math.cos(angle)*len,sy+Math.sin(angle)*len);ctx.lineTo(sx+Math.cos(angle+0.06)*len,sy+Math.sin(angle+0.06)*len);ctx.closePath();ctx.fill()}ctx.restore()}
+function drawVignette(){ctx.save();ctx.globalAlpha=0.08;let vg=ctx.createRadialGradient(W*0.5,H*0.45,W*0.3,W*0.5,H*0.5,W*0.85);vg.addColorStop(0,'rgba(0,0,0,0)');vg.addColorStop(1,'rgba(30,25,15,1)');ctx.fillStyle=vg;ctx.fillRect(0,0,W,H);ctx.restore()}
+
+// ===== Main Render Loop =====
+function render(){
+  time++;
+  ctx.save();
+  ctx.clearRect(0,0,W,H);
+  drawSky();drawSun();drawClouds();drawDistantMountains();drawDistantTreeSilhouettes();
+  drawGround();drawStonePath();drawPond();drawBridge();drawRocks();
+  drawGroundFlowers();drawAllTrees();drawBamboos();drawPavilion();
+
+  drawForegroundGrass();drawPetals();drawButterflies();
+  drawWarmOverlay();drawVignette();
+  ctx.restore();
+  requestAnimationFrame(render);
+}
+
+// ===========================================================
+//  PART 2 — V3 Interaction System
+// ===========================================================
+
+// ===== Card Data =====
 const D=[
-  {i:'🎋',t:'竹有话说',b:'风来的时候摇一摇\n风走了\n又站直了\n\n你也是这样\n让我很安心'},
-  {i:'🌺',t:'梅有话说',b:'不等谁许可\n不挑什么时机\n想开就开\n\n这件事\n你在做\n我在看'},
-  {i:'🏮',t:'亭有话说',b:'停下来歇一会儿的理由\n不用很充分\n\n比如风刚好\n比如你刚好在'},
-  {i:'🌕',t:'门有话说',b:'一个圆\n框住了另一种风景\n\n你站在那头\n整个园子都不一样了'},
-  {i:'🏮',t:'灯有话说',b:'挂高一点\n不是为了照亮自己\n\n是为了让\n找路的人看得见'},
-  {i:'🌸',t:'荷有话说',b:'有些东西\n在水面之下\n慢慢长着\n\n到了时候\n就都明朗了'},
-  {i:'🌉',t:'桥有话说',b:'隔的不是路\n是两端\n\n但只要两头都有人\n等着\n就没什么了不得'},
-  {i:'🐟',t:'鱼有话说',b:'你来看我\n我游过来\n\n你没来的时候\n我也在这里\n不急'},
-  {i:'🐠',t:'金鱼有话说',b:'想你这件事\n没什么特别的理由\n\n就是\n比较频繁'},
-  {i:'🪨',t:'石有话说',b:'漏·透·皱·瘦\n看似不太合群的样子\n\n却是最难得的那种\n\n你也是'},
+  {i:'🎋',t:'竹有话说',b:'竹子长得好快\n一年就窜老高\n\n我偷偷量了一下\n还是矮\n\n但没关系\n慢慢长也挺好的'},
+  {i:'🌺',t:'花有话说',b:'你画过的那些花\n后来真的开了\n\n不是我种的\n是它们自己\n想让你看看'},
+  {i:'🏮',t:'亭有话说',b:'我算过\n从这里到你的距离\n不算太远\n\n问题是\n今天是星期几'},
+  {i:'🌕',t:'径有话说',b:'弯弯曲曲的小路\n不知道通向哪里\n但我知道\n\n只要是和你一起走\n哪条都行'},
+  {i:'🏮',t:'灯有话说',b:'猫咪最懂灯\n光在哪里\n就趴在哪里\n\n我最懂你\n你在哪里\n我就想在哪里'},
+  {i:'🌸',t:'荷有话说',b:'荷塘边的兔子\n竖着耳朵听风\n\n我也一样\n竖着耳朵\n等你说想我'},
+  {i:'🌉',t:'桥有话说',b:'桥下面有鱼\n桥上面有人\n\n鱼不知道桥去哪\n人只想\n从桥上走到你身边'},
+  {i:'🐟',t:'鱼有话说',b:'如果我是锦鲤\n我只许一个愿望\n\n就是下次见面的时候\n能碰到你\n不算犯规吧'},
+  {i:'🐠',t:'金鱼有话说',b:'金鱼只有七秒记忆\n那也太好了吧\n\n每次见到你都像\n第一次\n\n心跳加速的那种'},
+  {i:'🪨',t:'石有话说',b:'这块石头在这坐了很久\n什么都知道\n\n它说你今天很可爱\n问我怎么知道的\n\n它跟我说的'},
 ];
 
-let opened=new Set(),ulkOn=false;
-let eggAnimId=null;
+let opened=new Set(),ulkOn=false,eggAnimId=null,allDone=false;
 
-// ===== 倒计时 =====
+// ===== Countdown =====
 function days(){
   const t=new Date(2026,4,23);t.setHours(0,0,0,0);
   return Math.max(0,Math.ceil((t-new Date())/864e5));
 }
 
-// ===== 进度 =====
+// ===== Progress =====
 function upProg(){
   const n=opened.size;
   document.getElementById('pc').textContent=n;
   document.getElementById('pf').style.width=(n*10)+'%';
 }
 
-// ===== 情话 =====
+// ===== Card =====
 function openC(i){
   const d=D[i];
   document.getElementById('ci').textContent=d.i;
@@ -437,7 +607,10 @@ function openC(i){
   if(!opened.has(i)){
     opened.add(i);upProg();markDone(i);
     burst(getPos(i));inkD(getPos(i));
-    if(opened.size===10) setTimeout(()=>showToast('十处都找到了'),700);
+    if(opened.size===10){allDone=true;setTimeout(()=>showCeleb(),700)}
+  } else if(allDone){
+    // already all done, show celebration again on any tap
+    setTimeout(()=>showCeleb(),300);
   }
 }
 function getPos(i){
@@ -454,10 +627,10 @@ function markDone(i){
 function hide(id){document.getElementById(id).classList.remove('on')}
 function cls(e,id){if(e.target.classList.contains('ov'))hide(id)}
 
-// ===== 信件 =====
+// ===== Letter =====
 function showLtr(){document.getElementById('ltr').classList.add('on')}
 
-// ===== 彩蛋 =====
+// ===== Easter Egg =====
 function togU(){
   ulkOn=!ulkOn;
   document.getElementById('ulk').classList.toggle('on',ulkOn);
@@ -471,178 +644,60 @@ function chkU(v){
   }
 }
 
-// ===== 月夜彩蛋场景 =====
-let eggParticles=[];
+// ===== Moon Night Egg Scene =====
+let eggParticles=[],eggBgCache=null;
 function openEgg(){
   const es=document.getElementById('egg-scene');
   es.style.display='block';
-  requestAnimationFrame(()=>{es.classList.add('on');});
+  requestAnimationFrame(()=>es.classList.add('on'));
+  eggBgCache=null;
   initEggCanvas();
   eggParticles=[];
-  // 萤火虫
-  for(let i=0;i<40;i++) eggParticles.push({
-    x:Math.random()*window.innerWidth,
-    y:Math.random()*window.innerHeight*.8,
-    vx:(Math.random()-.5)*.6,vy:(Math.random()-.5)*.4,
-    r:1.5+Math.random()*2,
-    phase:Math.random()*Math.PI*2,speed:.02+Math.random()*.03,
-    type:'firefly'
-  });
-  // 流星
-  function spawnStar(){
-    eggParticles.push({
-      x:Math.random()*window.innerWidth,
-      y:0,vx:2+Math.random()*3,vy:1.5+Math.random()*2,
-      life:1,type:'star'
-    });
-    setTimeout(spawnStar,2000+Math.random()*4000);
-  }
+  for(let i=0;i<40;i++) eggParticles.push({x:Math.random()*window.innerWidth,y:Math.random()*window.innerHeight*.8,vx:(Math.random()-.5)*.6,vy:(Math.random()-.5)*.4,r:1.5+Math.random()*2,phase:Math.random()*Math.PI*2,speed:.02+Math.random()*.03,type:'firefly'});
+  function spawnStar(){eggParticles.push({x:Math.random()*window.innerWidth,y:0,vx:2+Math.random()*3,vy:1.5+Math.random()*2,life:1,type:'star'});setTimeout(spawnStar,2000+Math.random()*4000)}
   setTimeout(spawnStar,1500);
   tickEgg();
 }
 function initEggCanvas(){
   const c=document.getElementById('egg-canvas');
   c.width=window.innerWidth;c.height=window.innerHeight;
-  const ctx=c.getContext('2d');
-  // 月亮
-  const mx=c.width*.75,my=c.height*.18,mr=Math.min(c.width,c.height)*.08;
-  ctx.save();
-  ctx.beginPath();ctx.arc(mx,my,mr,0,Math.PI*2);
-  const mg=ctx.createRadialGradient(mx,my,0,mx,my,mr);
-  mg.addColorStop(0,'#f0e8d0');mg.addColorStop(.7,'#e0d0b0');mg.addColorStop(1,'#c8b890');
-  ctx.fillStyle=mg;ctx.fill();
-  // 月晕
-  ctx.beginPath();ctx.arc(mx,my,mr*2,0,Math.PI*2);
-  const mg2=ctx.createRadialGradient(mx,my,mr*.8,mx,my,mr*2);
-  mg2.addColorStop(0,'rgba(220,210,180,.15)');mg2.addColorStop(1,'rgba(220,210,180,0)');
-  ctx.fillStyle=mg2;ctx.fill();
-  ctx.restore();
-  // 星星
-  ctx.save();
-  for(let i=0;i<60;i++){
-    const sx=Math.random()*c.width,sy=Math.random()*c.height*.6;
-    const sr=.4+Math.random()*1.2;
-    ctx.globalAlpha=.3+Math.random()*.5;
-    ctx.fillStyle='#e0d8c0';
-    ctx.beginPath();ctx.arc(sx,sy,sr,0,Math.PI*2);ctx.fill();
-  }
-  ctx.restore();
-  // 山的剪影
-  ctx.save();ctx.globalAlpha=.6;
-  ctx.fillStyle='#0e1828';
-  ctx.beginPath();ctx.moveTo(0,c.height*.7);
-  ctx.quadraticCurveTo(c.width*.15,c.height*.45,c.width*.3,c.height*.6);
-  ctx.quadraticCurveTo(c.width*.45,c.height*.42,c.width*.6,c.height*.58);
-  ctx.quadraticCurveTo(c.width*.8,c.height*.38,c.width,c.height*.55);
-  ctx.lineTo(c.width,c.height);ctx.lineTo(0,c.height);ctx.fill();
-  ctx.restore();
-  // 树剪影
-  ctx.save();ctx.globalAlpha=.8;ctx.fillStyle='#0a1220';
-  drawTree(ctx,c.width*.12,c.height*.68,50);
-  drawTree(ctx,c.width*.88,c.height*.65,60);
-  drawTree(ctx,c.width*.25,c.height*.72,35);
-  ctx.restore();
-}
-function drawTree(ctx,x,h,size){
-  ctx.fillRect(x-size*.06,h*.3,size*.12,h*.7);
-  ctx.beginPath();ctx.arc(x,h*.25,size*.28,0,Math.PI*2);ctx.fill();
-  ctx.beginPath();ctx.arc(x-size*.15,h*.38,size*.2,0,Math.PI*2);ctx.fill();
-  ctx.beginPath();ctx.arc(x+size*.15,h*.36,size*.22,0,Math.PI*2);ctx.fill();
+  // draw static bg once
+  const ctx2=c.getContext('2d');
+  const oc=document.createElement('canvas');oc.width=c.width;oc.height=c.height;
+  const octx=oc.getContext('2d');
+  const mx=oc.width*.75,my=oc.height*.18,mr=Math.min(oc.width,oc.height)*.08;
+  octx.save();octx.beginPath();octx.arc(mx,my,mr,0,Math.PI*2);
+  const mg=octx.createRadialGradient(mx,my,0,mx,my,mr);mg.addColorStop(0,'#f0e8d0');mg.addColorStop(.7,'#e0d0b0');mg.addColorStop(1,'#c8b890');octx.fillStyle=mg;octx.fill();
+  octx.beginPath();octx.arc(mx,my,mr*2,0,Math.PI*2);const mg2=octx.createRadialGradient(mx,my,mr*.8,mx,my,mr*2);mg2.addColorStop(0,'rgba(220,210,180,.15)');mg2.addColorStop(1,'rgba(220,210,180,0)');octx.fillStyle=mg2;octx.fill();octx.restore();
+  octx.save();for(let i=0;i<60;i++){const sx=Math.random()*oc.width,sy=Math.random()*oc.height*.6,sr=.4+Math.random()*1.2;octx.globalAlpha=.3+Math.random()*.5;octx.fillStyle='#e0d8c0';octx.beginPath();octx.arc(sx,sy,sr,0,Math.PI*2);octx.fill()}octx.restore();
+  octx.save();octx.globalAlpha=.6;octx.fillStyle='#0e1828';octx.beginPath();octx.moveTo(0,oc.height*.7);octx.quadraticCurveTo(oc.width*.15,oc.height*.45,oc.width*.3,oc.height*.6);octx.quadraticCurveTo(oc.width*.45,oc.height*.42,oc.width*.6,oc.height*.58);octx.quadraticCurveTo(oc.width*.8,oc.height*.38,oc.width,oc.height*.55);octx.lineTo(oc.width,oc.height);octx.lineTo(0,oc.height);octx.fill();octx.restore();
+  octx.save();octx.globalAlpha=.8;octx.fillStyle='#0a1220';
+  function drawTree(ctx,x,h,size){ctx.fillRect(x-size*.06,h*.3,size*.12,h*.7);ctx.beginPath();ctx.arc(x,h*.25,size*.28,0,Math.PI*2);ctx.fill();ctx.beginPath();ctx.arc(x-size*.15,h*.38,size*.2,0,Math.PI*2);ctx.fill();ctx.beginPath();ctx.arc(x+size*.15,h*.36,size*.22,0,Math.PI*2);ctx.fill()}
+  drawTree(octx,oc.width*.12,oc.height*.68,50);drawTree(octx,oc.width*.88,oc.height*.65,60);drawTree(octx,oc.width*.25,oc.height*.72,35);
+  octx.restore();
+  eggBgCache=oc;
 }
 function tickEgg(){
   const c=document.getElementById('egg-canvas');
-  const ctx=c.getContext('2d');
-  // 轻微淡出再重绘（保留静态背景需要用overlay canvas）
-  // 用半透明遮罩实现拖尾
-  // 其实我们用另一个方式：只在原canvas上面加一层
-  // 但为了简单，我们用 save/restore + clearRect 来做动态层
-  // 改为：把静态画到一个offscreen canvas，每帧复制再画动态
-
-  // 简化：用原canvas但加动态层（萤火虫和流星用composite）
-  ctx.clearRect(0,0,c.width,c.height);
-  initEggCanvasStatic(ctx,c); // 重绘静态部分
-
+  const ctx2=c.getContext('2d');
+  ctx2.clearRect(0,0,c.width,c.height);
+  if(eggBgCache) ctx2.drawImage(eggBgCache,0,0);
   eggParticles=eggParticles.filter(p=>{
     if(p.type==='firefly'){
-      p.phase+=p.speed;
-      p.x+=p.vx+Math.sin(p.phase)*.3;
-      p.y+=p.vy+Math.cos(p.phase*.7)*.2;
-      if(p.x<-20)p.x=c.width+20;if(p.x>c.width+20)p.x=-20;
-      if(p.y<-20)p.y=c.height+20;if(p.y>c.height+20)p.y=-20;
-      const alpha=.4+Math.sin(p.phase)*.35;
-      ctx.save();
-      ctx.globalAlpha=Math.max(0,alpha);
-      const g=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*4);
-      g.addColorStop(0,'rgba(200,240,120,.6)');g.addColorStop(1,'rgba(200,240,120,0)');
-      ctx.fillStyle=g;
-      ctx.beginPath();ctx.arc(p.x,p.y,p.r*4,0,Math.PI*2);ctx.fill();
-      ctx.fillStyle='#d0f060';
-      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();
-      ctx.restore();
-      return true;
+      p.phase+=p.speed;p.x+=p.vx+Math.sin(p.phase)*.3;p.y+=p.vy+Math.cos(p.phase*.7)*.2;
+      if(p.x<-20)p.x=c.width+20;if(p.x>c.width+20)p.x=-20;if(p.y<-20)p.y=c.height+20;if(p.y>c.height+20)p.y=-20;
+      const alpha=.4+Math.sin(p.phase)*.35;ctx2.save();ctx2.globalAlpha=Math.max(0,alpha);
+      const g=ctx2.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*4);g.addColorStop(0,'rgba(200,240,120,.6)');g.addColorStop(1,'rgba(200,240,120,0)');ctx2.fillStyle=g;ctx2.beginPath();ctx2.arc(p.x,p.y,p.r*4,0,Math.PI*2);ctx2.fill();
+      ctx2.fillStyle='#d0f060';ctx2.beginPath();ctx2.arc(p.x,p.y,p.r,0,Math.PI*2);ctx2.fill();ctx2.restore();return true;
     }
     if(p.type==='star'){
-      p.x+=p.vx;p.y+=p.vy;p.life-=.015;
-      if(p.life<=0)return false;
-      ctx.save();ctx.globalAlpha=p.life;
-      ctx.strokeStyle='#f0e8d0';ctx.lineWidth=1.5;ctx.lineCap='round';
-      ctx.beginPath();ctx.moveTo(p.x,p.y);
-      ctx.lineTo(p.x-p.vx*8,p.y-p.vy*8);ctx.stroke();
-      ctx.restore();
-      return true;
+      p.x+=p.vx;p.y+=p.vy;p.life-=.015;if(p.life<=0)return false;
+      ctx2.save();ctx2.globalAlpha=p.life;ctx2.strokeStyle='#f0e8d0';ctx2.lineWidth=1.5;ctx2.lineCap='round';ctx2.beginPath();ctx2.moveTo(p.x,p.y);ctx2.lineTo(p.x-p.vx*8,p.y-p.vy*8);ctx2.stroke();ctx2.restore();return true;
     }
     return false;
   });
-
   eggAnimId=requestAnimationFrame(tickEgg);
 }
-// 缓存静态背景
-let eggBgCache=null;
-function initEggCanvasStatic(ctx,c){
-  if(eggBgCache&&eggBgCache.width===c.width&&eggBgCache.height===c.height){
-    ctx.drawImage(eggBgCache,0,0);return;
-  }
-  // 绘制并缓存
-  const oc=document.createElement('canvas');oc.width=c.width;oc.height=c.height;
-  const octx=oc.getContext('2d');
-  // 月亮
-  const mx=oc.width*.75,my=oc.height*.18,mr=Math.min(oc.width,oc.height)*.08;
-  octx.save();
-  octx.beginPath();octx.arc(mx,my,mr,0,Math.PI*2);
-  const mg=octx.createRadialGradient(mx,my,0,mx,my,mr);
-  mg.addColorStop(0,'#f0e8d0');mg.addColorStop(.7,'#e0d0b0');mg.addColorStop(1,'#c8b890');
-  octx.fillStyle=mg;octx.fill();
-  octx.beginPath();octx.arc(mx,my,mr*2,0,Math.PI*2);
-  const mg2=octx.createRadialGradient(mx,my,mr*.8,mx,my,mr*2);
-  mg2.addColorStop(0,'rgba(220,210,180,.15)');mg2.addColorStop(1,'rgba(220,210,180,0)');
-  octx.fillStyle=mg2;octx.fill();
-  octx.restore();
-  // 星星
-  octx.save();
-  for(let i=0;i<60;i++){
-    const sx=Math.random()*oc.width,sy=Math.random()*oc.height*.6,sr=.4+Math.random()*1.2;
-    octx.globalAlpha=.3+Math.random()*.5;octx.fillStyle='#e0d8c0';
-    octx.beginPath();octx.arc(sx,sy,sr,0,Math.PI*2);octx.fill();
-  }
-  octx.restore();
-  // 山
-  octx.save();octx.globalAlpha=.6;octx.fillStyle='#0e1828';
-  octx.beginPath();octx.moveTo(0,oc.height*.7);
-  octx.quadraticCurveTo(oc.width*.15,oc.height*.45,oc.width*.3,oc.height*.6);
-  octx.quadraticCurveTo(oc.width*.45,oc.height*.42,oc.width*.6,oc.height*.58);
-  octx.quadraticCurveTo(oc.width*.8,oc.height*.38,oc.width,oc.height*.55);
-  octx.lineTo(oc.width,oc.height);octx.lineTo(0,oc.height);octx.fill();
-  octx.restore();
-  // 树
-  octx.save();octx.globalAlpha=.8;octx.fillStyle='#0a1220';
-  drawTree(octx,oc.width*.12,oc.height*.68,50);
-  drawTree(octx,oc.width*.88,oc.height*.65,60);
-  drawTree(octx,oc.width*.25,oc.height*.72,35);
-  octx.restore();
-  eggBgCache=oc;
-  ctx.drawImage(oc,0,0);
-}
-
 function closeEgg(){
   document.getElementById('egg-scene').classList.remove('on');
   if(eggAnimId){cancelAnimationFrame(eggAnimId);eggAnimId=null;}
@@ -650,14 +705,46 @@ function closeEgg(){
   eggBgCache=null;
 }
 
-// ===== toast =====
+// ===== Toast =====
 function showToast(msg){
   document.getElementById('toastp').textContent=msg;
   const t=document.getElementById('toast');t.classList.add('on');
   setTimeout(()=>t.classList.remove('on'),3000);
 }
 
-// ===== 墨滴 =====
+// ===== Completion Celebration =====
+function showCeleb(){
+  // spawn floating petals
+  const cols=['#d89098','#e0a8b4','#c87080','#f0c0b0','#FFB7C5','#FFD700','#DDA0DD'];
+  for(let i=0;i<18;i++){
+    const p=document.createElement('div');p.className='celeb-petal';
+    const sz=6+Math.random()*10,col=cols[Math.floor(Math.random()*cols.length)];
+    const dur=2.5+Math.random()*2,delay=Math.random()*.8;
+    p.style.cssText=`width:${sz}px;height:${sz}px;background:${col};
+      left:${Math.random()*100}vw;top:-20px;
+      --dur:${dur}s;--delay:${delay}s;
+      border-radius:50% 0 50% 50%;`;
+    document.body.appendChild(p);
+    setTimeout(()=>p.remove(),(dur+delay)*1000+200);
+  }
+  // show card
+  const el=document.getElementById('celeb');
+  // reset hearts animation
+  el.querySelectorAll('.celeb-heart').forEach(h=>{
+    h.style.animation='none';h.offsetHeight;h.style.animation='';
+  });
+  el.classList.add('on');
+  // auto dismiss after 4s
+  clearTimeout(el._timer);
+  el._timer=setTimeout(hideCeleb,4000);
+}
+function hideCeleb(){
+  const el=document.getElementById('celeb');
+  el.classList.remove('on');
+  clearTimeout(el._timer);
+}
+
+// ===== Ink Drop =====
 function inkD(pos){
   const d=document.createElement('div');d.className='ink-d';
   const s=16+Math.random()*20;
@@ -665,159 +752,26 @@ function inkD(pos){
   document.body.appendChild(d);setTimeout(()=>d.remove(),600);
 }
 
-// ===== 背景 Canvas =====
-function drawBg(){
-  const c=document.getElementById('bg-canvas');
-  const W=window.innerWidth,H=window.innerHeight;
-  c.width=W;c.height=H;
-  const ctx=c.getContext('2d');
-
-  // 宣纸底
-  ctx.fillStyle='#f4eedf';ctx.fillRect(0,0,W,H);
-
-  // 纸纹
-  ctx.save();ctx.globalAlpha=.015;
-  for(let i=0;i<500;i++){
-    ctx.beginPath();ctx.arc(Math.random()*W,Math.random()*H,Math.random()*1.5,0,Math.PI*2);
-    ctx.fillStyle=Math.random()>.5?'#7a6040':'#a09060';ctx.fill();
-  }ctx.restore();
-
-  // === 远山（水墨多层） ===
-  // 远山1
-  ctx.save();ctx.globalAlpha=.12;ctx.fillStyle='#4a7858';
-  ctx.beginPath();ctx.moveTo(0,H*.38);
-  ctx.bezierCurveTo(W*.1,H*.18,W*.22,H*.32,W*.35,H*.22);
-  ctx.bezierCurveTo(W*.48,H*.14,W*.62,H*.28,W*.72,H*.16);
-  ctx.bezierCurveTo(W*.85,H*.08,W*.95,H*.2,W,H*.32);
-  ctx.lineTo(W,H*.52);ctx.lineTo(0,H*.52);ctx.fill();ctx.restore();
-
-  // 远山2
-  ctx.save();ctx.globalAlpha=.07;ctx.fillStyle='#3a6050';
-  ctx.beginPath();ctx.moveTo(0,H*.44);
-  ctx.bezierCurveTo(W*.15,H*.3,W*.28,H*.42,W*.42,H*.32);
-  ctx.bezierCurveTo(W*.58,H*.22,W*.75,H*.36,W*.88,H*.26);
-  ctx.bezierCurveTo(W*.94,H*.22,W,H*.3,W,H*.4);
-  ctx.lineTo(W,H*.56);ctx.lineTo(0,H*.56);ctx.fill();ctx.restore();
-
-  // 云雾
-  ctx.save();ctx.globalAlpha=.06;ctx.fillStyle='#c0b898';
-  ctx.beginPath();ctx.ellipse(W*.3,H*.3,W*.25,H*.02,0,0,Math.PI*2);ctx.fill();
-  ctx.beginPath();ctx.ellipse(W*.7,H*.26,W*.2,H*.015,0,0,Math.PI*2);ctx.fill();
-  ctx.restore();
-
-  // === 中景：地面 ===
-  ctx.save();
-  const gg=ctx.createLinearGradient(0,H*.48,0,H*.58);
-  gg.addColorStop(0,'rgba(180,168,130,.28)');gg.addColorStop(1,'rgba(160,148,110,.42)');
-  ctx.fillStyle=gg;ctx.fillRect(0,H*.48,W,H*.1);
-  ctx.restore();
-
-  // === 水池（中下） ===
-  ctx.save();
-  const wg=ctx.createRadialGradient(W*.45,H*.72,0,W*.45,H*.72,W*.38);
-  wg.addColorStop(0,'rgba(168,204,224,.48)');wg.addColorStop(.6,'rgba(168,204,224,.28)');wg.addColorStop(1,'rgba(168,204,224,0)');
-  ctx.fillStyle=wg;
-  ctx.beginPath();ctx.ellipse(W*.45,H*.72,W*.38,H*.1,0,0,Math.PI*2);ctx.fill();
-  // 水波
-  ctx.globalAlpha=.1;ctx.strokeStyle='#5888a4';ctx.lineWidth=.6;
-  for(let i=1;i<=6;i++){
-    ctx.beginPath();ctx.ellipse(W*.45,H*.72,W*.34-i*3,H*.08-i*.003,0,0,Math.PI*2);ctx.stroke();
-  }
-  ctx.restore();
-
-  // 近景地面
-  ctx.save();
-  const ng=ctx.createLinearGradient(0,H*.8,0,H);
-  ng.addColorStop(0,'rgba(170,155,120,.3)');ng.addColorStop(1,'rgba(150,135,100,.48)');
-  ctx.fillStyle=ng;ctx.fillRect(0,H*.8,W,H*.2);
-  ctx.restore();
-
-  // === 围墙 ===
-  ctx.save();ctx.globalAlpha=.2;ctx.fillStyle='#b0a080';
-  ctx.fillRect(0,H*.48,W*.06,H*.34);ctx.fillRect(W*.94,H*.48,W*.06,H*.34);
-  ctx.globalAlpha=.1;ctx.fillStyle='#b02828';
-  ctx.fillRect(0,H*.46,W*.06,4);ctx.fillRect(W*.94,H*.46,W*.06,4);
-  ctx.restore();
-
-  // === 水墨晕染（左上角） ===
-  const ig=ctx.createRadialGradient(0,0,0,0,0,W*.4);
-  ig.addColorStop(0,'rgba(100,80,50,.04)');ig.addColorStop(1,'rgba(100,80,50,0)');
-  ctx.fillStyle=ig;ctx.fillRect(0,0,W,H);
-}
-
-// ===== 粒子系统 =====
-const FX=document.getElementById('fx-canvas');
-const FXC=FX.getContext('2d');
-let pts=[];
-const COLS=['#d89098','#e0a8b4','#c87080','#f0c0b0','#e8c0a0','#f0d488'];
-
-function initFx(){FX.width=window.innerWidth;FX.height=window.innerHeight;}
-
-function spawnPetal(){
-  pts.push({x:Math.random()*window.innerWidth,y:-16,
-    vx:(Math.random()-.5)*.8,vy:.6+Math.random()*1.2,
-    rot:Math.random()*360,vr:(Math.random()-.5)*2.5,
-    w:5+Math.random()*7,h:3+Math.random()*4,
-    c:COLS[Math.floor(Math.random()*COLS.length)],
-    life:1,type:'p'});
-}
+// ===== Burst (HTML particles) =====
 function burst(pos){
-  for(let i=0;i<15;i++){
-    const a=Math.random()*Math.PI*2,spd=2+Math.random()*4;
-    pts.push({x:pos.x,y:pos.y,vx:Math.cos(a)*spd,vy:Math.sin(a)*spd-1,
-      rot:Math.random()*360,vr:(Math.random()-.5)*6,
-      w:4+Math.random()*6,h:2.5+Math.random()*3.5,
-      c:COLS[Math.floor(Math.random()*COLS.length)],
-      life:1,type:'b'});
+  const COLS=['#d89098','#e0a8b4','#c87080','#f0c0b0','#e8c0a0','#f0d488'];
+  for(let i=0;i<12;i++){
+    const a=Math.random()*Math.PI*2,spd=2+Math.random()*3;
+    const el=document.createElement('div');
+    const sz=4+Math.random()*5;
+    const col=COLS[Math.floor(Math.random()*COLS.length)];
+    el.style.cssText=`position:fixed;pointer-events:none;z-index:50;border-radius:50%;width:${sz}px;height:${sz}px;background:${col};left:${pos.x}px;top:${pos.y}px;opacity:0.8;transition:all .8s ease-out;`;
+    document.body.appendChild(el);
+    requestAnimationFrame(()=>{
+      el.style.left=(pos.x+Math.cos(a)*spd*30)+'px';
+      el.style.top=(pos.y+Math.sin(a)*spd*30-20)+'px';
+      el.style.opacity='0';el.style.transform='scale(0.3)';
+    });
+    setTimeout(()=>el.remove(),900);
   }
 }
-function spawnRipple(){
-  const W=window.innerWidth,H=window.innerHeight;
-  pts.push({x:W*.15+Math.random()*W*.55,y:H*.63+Math.random()*H*.12,
-    rx:25+Math.random()*50,life:1,type:'r'});
-}
-function tickFx(){
-  FXC.clearRect(0,0,FX.width,FX.height);
-  pts=pts.filter(p=>{
-    if(p.type==='r'){
-      p.life-=.01;if(p.life<=0)return false;
-      FXC.save();FXC.globalAlpha=p.life*.45;
-      FXC.strokeStyle='rgba(88,136,164,.5)';FXC.lineWidth=.6;
-      FXC.beginPath();
-      FXC.ellipse(p.x,p.y,p.rx*(1-p.life),p.rx*.26*(1-p.life),0,0,Math.PI*2);
-      FXC.stroke();FXC.restore();return true;
-    }
-    p.x+=p.vx;p.y+=p.vy;p.rot+=p.vr;
-    if(p.type==='b'){p.vy+=.12;p.life-=.032;}
-    else{p.life-=.005;}
-    if(p.life<=0||p.y>window.innerHeight+20)return false;
-    FXC.save();FXC.globalAlpha=Math.min(p.life*.8,.8);
-    FXC.translate(p.x,p.y);FXC.rotate(p.rot*Math.PI/180);
-    FXC.fillStyle=p.c;
-    FXC.beginPath();FXC.ellipse(0,0,p.w/2,p.h/2,0,0,Math.PI*2);
-    FXC.fill();FXC.restore();return true;
-  });
-  requestAnimationFrame(tickFx);
-}
 
-// ===== 微动画 =====
-function microAnim(){
-  const pav=document.getElementById('s2'),lan=document.getElementById('s4');
-  const fish=document.getElementById('s7'),fish2=document.getElementById('s8');
-  let t=0;
-  setInterval(()=>{
-    t+=.03;
-    // 亭子呼吸
-    pav.style.transform=`translateX(-50%) translateY(${Math.sin(t)*1.5}px)`;
-    // 灯笼摇曳
-    lan.style.transform=`translateX(-50%) rotate(${Math.sin(t*1.2)*3}deg)`;
-    // 鱼游动
-    fish.style.transform=`translateX(${Math.sin(t*.8)*4}px)`;
-    fish2.style.transform=`translateX(${Math.sin(t*.6+1)*3}px)`;
-  },50);
-}
-
-// ===== 触摸墨滴 =====
+// ===== Touch ink =====
 document.querySelectorAll('.spot').forEach(el=>{
   const handler=e=>{
     const t=e.touches?e.touches[0]:e;
@@ -827,26 +781,34 @@ document.querySelectorAll('.spot').forEach(el=>{
   el.addEventListener('click',handler);
 });
 
-// ===== 初始化 =====
+// ===== Init =====
 window.addEventListener('load',()=>{
   const d=days();
   document.getElementById('cdn').textContent=d;
   document.getElementById('lcd').textContent=d;
   if(d===0)document.getElementById('cdc').textContent='今天见你！';
-  drawBg();initFx();
-  window.addEventListener('resize',()=>{drawBg();initFx();});
+  // init canvas
+  W = cv.width = window.innerWidth * dpr;
+  H = cv.height = window.innerHeight * dpr;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  W /= dpr; H /= dpr;
+  regenerate();
+  render();
+  window.addEventListener('resize',()=>{
+    W = cv.width = window.innerWidth * dpr;
+    H = cv.height = window.innerHeight * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    W /= dpr; H /= dpr;
+    regenerate();
+  });
+  // show scene after loading
   setTimeout(()=>{
     const ld=document.getElementById('loading');ld.style.opacity='0';
     setTimeout(()=>{
       ld.style.display='none';
       document.getElementById('scene').style.display='block';
-      microAnim();
-      for(let i=0;i<6;i++)setTimeout(spawnPetal,i*260);
     },1000);
   },1400);
-  tickFx();
-  setInterval(()=>{if(Math.random()<.4)spawnPetal();},3000);
-  setInterval(spawnRipple,2500);
 });
 </script>
 </body>
