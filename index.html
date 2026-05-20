@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<title>致你 · 五月二十日</title>
+<title>萌萌的园子 · 五月二十日</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{
@@ -63,8 +63,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:#87CEEB;
 .spot:active{transform:scale(.88)!important}
 .spot svg{display:block;transform:scale(.58);transform-origin:center center;
   filter:drop-shadow(0 2px 8px rgba(26,22,14,.1));opacity:.82}
-.spot .lb{text-align:center;font-size:11px;color:#2a2520;letter-spacing:2px;margin-top:2px;
-  opacity:.82;transition:opacity .3s;text-shadow:0 1px 5px rgba(255,255,255,0.8)}
+.spot .lb{text-align:center;font-size:12px;color:#fff;letter-spacing:2px;margin-top:2px;
+  opacity:.92;transition:opacity .3s;text-shadow:0 0 8px rgba(0,0,0,0.5),0 1px 3px rgba(255,255,255,0.9)}
 .spot:hover .lb{opacity:1}
 .spot .hint{position:absolute;top:-20px;left:50%;transform:translateX(-50%);
   background:rgba(176,40,40,.08);border:.5px solid rgba(176,40,40,.3);
@@ -220,7 +220,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#87CEEB;
 
   <div id="hdr">
     <div class="dt">二〇二六 · 五月 · 二十日</div>
-    <h1>致 · 你</h1>
+    <h1>萌萌的小园子</h1>
     <div class="sub">轻触园中，有话藏在这里</div>
   </div>
   <div id="cd"><div class="n" id="cdn">3</div><div class="c" id="cdc">天后见你</div></div>
@@ -228,8 +228,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:#87CEEB;
 
   <!-- ===== 10 scenic spots ===== -->
 
-  <!-- 0: Bamboo -->
-  <div class="spot" id="s0" style="left:86%;top:36%;" onclick="openC(0)">
+  <!-- 0: Bamboo — 竹林右侧，贴近竹子实际位置 -->
+  <div class="spot" id="s0" style="left:82%;top:32%;" onclick="openC(0)">
     <svg width="48" height="88" viewBox="0 0 48 88">
       <rect x="16" y="2" width="6" height="82" rx="3" fill="#4a7a40"/>
       <rect x="25" y="10" width="5" height="72" rx="2.5" fill="#3c6c34"/>
@@ -244,11 +244,10 @@ html,body{width:100%;height:100%;overflow:hidden;background:#87CEEB;
       <ellipse cx="9" cy="14" rx="7" ry="2.2" fill="#5a8a50" transform="rotate(-40 9 14)"/>
     </svg>
     <div class="lb">竹</div>
-    <div class="hint">轻触</div>
   </div>
 
-  <!-- 1: Cherry Blossom -->
-  <div class="spot" id="s1" style="left:8%;top:36%;" onclick="openC(1)">
+  <!-- 1: Cherry Blossom — 两棵樱花树之间的草地，偏左中部 -->
+  <div class="spot" id="s1" style="left:35%;top:52%;" onclick="openC(1)">
     <svg width="50" height="65" viewBox="0 0 50 65">
       <path d="M25 62 Q22 46 18 28 Q24 20 28 14" stroke="#5c3c20" stroke-width="2.5" fill="none" stroke-linecap="round"/>
       <path d="M25 44 Q32 36 40 30" stroke="#5c3c20" stroke-width="1.8" fill="none" stroke-linecap="round"/>
@@ -260,46 +259,29 @@ html,body{width:100%;height:100%;overflow:hidden;background:#87CEEB;
     <div class="lb">花</div>
   </div>
 
-  <!-- 2: Pavilion -->
-  <div class="spot" id="s2" style="left:74%;top:30%;" onclick="openC(2)">
-    <svg width="80" height="80" viewBox="0 0 80 80">
-      <polygon points="40,4 74,36 6,36" fill="#b02828" opacity=".9"/>
-      <polygon points="40,4 68,32 12,32" fill="#c84040" opacity=".55"/>
-      <path d="M6 36 Q3 30 5 26" stroke="#b02828" stroke-width="1.5" fill="none"/>
-      <path d="M74 36 Q77 30 75 26" stroke="#b02828" stroke-width="1.5" fill="none"/>
-      <rect x="14" y="36" width="5" height="32" fill="#7a5e18" rx="1"/>
-      <rect x="61" y="36" width="5" height="32" fill="#7a5e18" rx="1"/>
-      <rect x="24" y="36" width="5" height="32" fill="#8a6e20" rx="1"/>
-      <rect x="51" y="36" width="5" height="32" fill="#8a6e20" rx="1"/>
-      <rect x="10" y="65" width="60" height="8" fill="#c0a060" rx="2"/>
-      <rect x="12" y="50" width="56" height="2" fill="#7a5e18" rx="1" opacity=".5"/>
-    </svg>
+  <!-- 2: Pavilion — 点击Canvas大亭子 -->
+  <div class="spot" id="s2" style="left:73%;top:46%;width:11%;height:16%;background:transparent;" onclick="openC(2)">
     <div class="lb">亭</div>
   </div>
 
-  <!-- 3: Moon Gate / Stone Path -->
-  <div class="spot" id="s3" style="left:17%;top:67%;" onclick="openC(3)">
+  <!-- 3: Stone Path — 石板小路，左侧草地偏下 -->
+  <div class="spot" id="s3" style="left:12%;top:64%;" onclick="openC(3)">
     <svg width="50" height="66" viewBox="0 0 50 66">
-      <rect x="2" y="16" width="46" height="48" fill="#cdc0a4" opacity=".6"/>
-      <!-- stone path: winding trail with stepping stones -->
       <ellipse cx="25" cy="14" rx="8" ry="4.5" fill="#b8a888" opacity=".7"/>
       <ellipse cx="20" cy="24" rx="7" ry="4" fill="#c4b498" opacity=".75"/>
       <ellipse cx="28" cy="33" rx="8" ry="4.2" fill="#b8a888" opacity=".7"/>
       <ellipse cx="22" cy="42" rx="7.5" ry="4" fill="#c4b498" opacity=".75"/>
       <ellipse cx="27" cy="51" rx="8" ry="4.5" fill="#b8a888" opacity=".7"/>
-      <!-- grass edges -->
       <line x1="14" y1="22" x2="12" y2="26" stroke="#5a8a50" stroke-width="1" stroke-linecap="round"/>
       <line x1="16" y1="30" x2="14" y2="34" stroke="#4a7a40" stroke-width=".8" stroke-linecap="round"/>
       <line x1="35" y1="40" x2="37" y2="44" stroke="#5a8a50" stroke-width=".9" stroke-linecap="round"/>
       <line x1="18" y1="48" x2="15" y2="52" stroke="#4a7a40" stroke-width=".8" stroke-linecap="round"/>
-      <!-- top frame -->
-      <rect x="2" y="8" width="46" height="10" fill="#b09060" opacity=".35"/>
     </svg>
     <div class="lb">径</div>
   </div>
 
-  <!-- 4: Lantern -->
-  <div class="spot" id="s4" style="left:80%;top:40%;" onclick="openC(4)">
+  <!-- 4: Lantern — 跟随亭子移至草坪区域 -->
+  <div class="spot" id="s4" style="left:79%;top:57%;" onclick="openC(4)">
     <svg width="28" height="52" viewBox="0 0 28 52">
       <line x1="14" y1="0" x2="14" y2="6" stroke="#7a6038" stroke-width=".8"/>
       <path d="M4 10 Q1 20 1 27 Q1 36 4 44L24 44 Q27 36 27 27 Q27 20 24 10Z" fill="#b02828" opacity=".92"/>
@@ -315,8 +297,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:#87CEEB;
     <div class="lb">灯</div>
   </div>
 
-  <!-- 5: Lotus -->
-  <div class="spot" id="s5" style="left:30%;top:66%;" onclick="openC(5)">
+  <!-- 5: Lotus — 池塘左侧荷花处，pondCX≈47%, pondCY≈70%，left偏左 -->
+  <div class="spot" id="s5" style="left:32%;top:65%;" onclick="openC(5)">
     <svg width="54" height="64" viewBox="0 0 54 64">
       <ellipse cx="27" cy="58" rx="24" ry="6" fill="#356848" opacity=".7"/>
       <ellipse cx="13" cy="55" rx="12" ry="4" fill="#2a5438" opacity=".55"/>
@@ -332,8 +314,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:#87CEEB;
     <div class="lb">荷</div>
   </div>
 
-  <!-- 6: Bridge -->
-  <div class="spot" id="s6" style="left:26%;top:54%;" onclick="openC(6)">
+  <!-- 6: Bridge — 桥实际在 W*0.34, groundY+H*0.05，约 left:29%, top:63% -->
+  <div class="spot" id="s6" style="left:27%;top:58%;" onclick="openC(6)">
     <svg width="72" height="42" viewBox="0 0 72 42">
       <ellipse cx="36" cy="38" rx="30" ry="4" fill="rgba(88,136,164,.22)"/>
       <path d="M4 36 Q36 6 68 36" stroke="#7a6840" stroke-width="2.5" fill="none"/>
@@ -348,8 +330,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:#87CEEB;
     <div class="lb">桥</div>
   </div>
 
-  <!-- 7: Koi -->
-  <div class="spot" id="s7" style="left:50%;top:66%;" onclick="openC(7)">
+  <!-- 7: Koi — 池塘中偏右，约 left:50%, top:67% -->
+  <div class="spot" id="s7" style="left:48%;top:67%;" onclick="openC(7)">
     <svg width="44" height="26" viewBox="0 0 44 26">
       <ellipse cx="20" cy="13" rx="14" ry="8" fill="#b83838" opacity=".88"/>
       <polygon points="34,4 44,1 42,13 44,25 34,22" fill="#a02828" opacity=".78"/>
@@ -360,8 +342,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:#87CEEB;
     <div class="lb">鱼</div>
   </div>
 
-  <!-- 8: Goldfish -->
-  <div class="spot" id="s8" style="left:58%;top:70%;" onclick="openC(8)">
+  <!-- 8: Goldfish — 池塘右侧，约 left:57%, top:69% -->
+  <div class="spot" id="s8" style="left:55%;top:69%;" onclick="openC(8)">
     <svg width="38" height="22" viewBox="0 0 38 22">
       <ellipse cx="17" cy="11" rx="12" ry="7" fill="#a88010" opacity=".9"/>
       <polygon points="29,4 38,1 37,11 38,21 29,18" fill="#907008" opacity=".8"/>
@@ -372,14 +354,24 @@ html,body{width:100%;height:100%;overflow:hidden;background:#87CEEB;
     <div class="lb">金鱼</div>
   </div>
 
-  <!-- 9: Taihu Rock -->
-  <div class="spot" id="s9" style="left:42%;top:58%;" onclick="openC(9)">
-    <svg width="56" height="40" viewBox="0 0 56 40">
-      <path d="M4 36 Q6 20 14 14 Q20 8 26 12 Q34 6 42 14 Q50 22 48 36Z" fill="#a09070" opacity=".78"/>
-      <path d="M8 36 Q10 24 18 18 Q24 14 26 16" fill="none" stroke="#706050" stroke-width=".7" opacity=".4"/>
-      <path d="M30 14 Q38 18 40 28" fill="none" stroke="#706050" stroke-width=".7" opacity=".4"/>
-      <ellipse cx="16" cy="20" rx="3.5" ry="1.6" fill="#4a7840" opacity=".5"/>
-      <ellipse cx="32" cy="16" rx="2.6" ry="1.3" fill="#4a7840" opacity=".4"/>
+  <!-- 9: Taihu Rock — 岩石群在 W*0.33~0.60，取中间约 left:44%, top:60% -->
+  <div class="spot" id="s9" style="left:44%;top:57%;" onclick="openC(9)">
+    <svg width="72" height="56" viewBox="0 0 72 56">
+      <!-- 主石 大而明显 -->
+      <path d="M8 52 Q10 28 22 16 Q30 6 38 12 Q50 4 60 16 Q70 28 66 52Z" fill="#a09070" opacity=".85"/>
+      <path d="M12 52 Q14 34 24 22 Q32 14 38 18" fill="none" stroke="#706050" stroke-width="1" opacity=".45"/>
+      <path d="M42 14 Q54 22 56 38" fill="none" stroke="#706050" stroke-width="1" opacity=".45"/>
+      <!-- 透空孔洞 -->
+      <ellipse cx="34" cy="28" rx="7" ry="5" fill="rgba(40,50,40,0.38)"/>
+      <ellipse cx="50" cy="34" rx="4" ry="3" fill="rgba(40,50,40,0.28)"/>
+      <!-- 高光 -->
+      <ellipse cx="22" cy="22" rx="5" ry="3" fill="rgba(255,255,255,0.14)" transform="rotate(-20 22 22)"/>
+      <!-- 苔藓 -->
+      <ellipse cx="20" cy="30" rx="4.5" ry="2" fill="#4a7840" opacity=".5"/>
+      <ellipse cx="44" cy="18" rx="3.5" ry="1.8" fill="#4a7840" opacity=".42"/>
+      <!-- 配石 -->
+      <path d="M2 52 Q4 40 10 36 Q16 32 20 40 Q22 48 18 52Z" fill="#b0a080" opacity=".65"/>
+      <path d="M54 52 Q56 42 62 38 Q66 36 68 44 Q70 50 66 52Z" fill="#a89870" opacity=".6"/>
     </svg>
     <div class="lb">石</div>
   </div>
@@ -433,19 +425,19 @@ html,body{width:100%;height:100%;overflow:hidden;background:#87CEEB;
     <button class="x" onclick="hide('ltr')">×</button>
     <div class="lhd">
       <div class="seal">信</div>
-      <h2>致 · 雨萌</h2>
+      <h2>给雨萌~✨</h2>
     </div>
-    <div class="lbdy">雨萌宝宝，
+    <div class="lbdy">雨萌宝宝~✨
 
-今天你打开了这个园子。
+今天你打开了这个园子呀~
 园子里藏着十句话，
-不知道你会不会慢慢找完。
+不知道你会不会慢慢找完呢...
 
-我不太会写漂亮的话，
-但每一句都认真写了。
+我不太会写漂亮的话...
+但每一句都认认真真写的♡
 
-就先这样吧。
-等见面再说。</div>
+就先这样吧~
+等见面再说✨</div>
     <div class="lft">
       <span>还有 <strong id="lcd" style="color:var(--red)">3</strong> 天</span><br>
       2026.05.20
@@ -533,11 +525,11 @@ function drawPond(){ctx.save();let eg=ctx.createRadialGradient(pondCX,pondCY,pon
 function drawWaterEffects(){ctx.save();ctx.beginPath();ctx.ellipse(pondCX,pondCY,pondRX,pondRY,0,0,Math.PI*2);ctx.clip();for(let i=0;i<4;i++){ctx.strokeStyle=`rgba(255,255,255,${0.08+i*0.02})`;ctx.lineWidth=0.6;ctx.beginPath();let baseY=pondCY-pondRY*0.4+i*pondRY*0.25;for(let x=pondCX-pondRX;x<=pondCX+pondRX;x+=2){let y=baseY+Math.sin(x*0.025+time*0.018+i*1.8)*2.5+Math.sin(x*0.06+time*0.012)*1.2;if(x===pondCX-pondRX)ctx.moveTo(x,y);else ctx.lineTo(x,y)}ctx.stroke()}if(time%80===0)ripples.push({x:pondCX+rr(-pondRX*0.5,pondRX*0.5),y:pondCY+rr(-pondRY*0.3,pondRY*0.3),r:0,maxR:rr(12,30),alpha:0.4});for(let i=ripples.length-1;i>=0;i--){let r=ripples[i];r.r+=0.25;r.alpha-=0.003;if(r.alpha<=0){ripples.splice(i,1);continue}ctx.strokeStyle=`rgba(255,255,255,${r.alpha})`;ctx.lineWidth=0.7;ctx.beginPath();ctx.ellipse(r.x,r.y,r.r,r.r*0.35,0,0,Math.PI*2);ctx.stroke()}ctx.globalAlpha=0.08+Math.sin(time*0.03)*0.04;for(let i=0;i<8;i++){let sx=pondCX+Math.sin(time*0.008+i*1.3)*pondRX*0.7,sy=pondCY+Math.cos(time*0.006+i*2.1)*pondRY*0.5;ctx.fillStyle='rgba(255,255,255,1)';ctx.beginPath();ctx.ellipse(sx,sy,rr(2,5),rr(1,2.5),time*0.01+i,0,Math.PI*2);ctx.fill()}ctx.restore()}
 function drawLotus(){srand(789);[{x:-0.55,y:0.1},{x:0.05,y:-0.35},{x:0.35,y:0.15},{x:-0.2,y:-0.1},{x:0.55,y:-0.05},{x:-0.7,y:0},{x:0.15,y:0.35}].forEach((p,i)=>{let lx=pondCX+p.x*pondRX,ly=pondCY+p.y*pondRY,lr=rr(10,20);ctx.save();ctx.translate(lx,ly);ctx.rotate(rr(-0.3,0.3));let lg=ctx.createRadialGradient(0,0,0,0,0,lr);lg.addColorStop(0,'rgba(50,160,55,0.75)');lg.addColorStop(0.7,'rgba(40,135,45,0.6)');lg.addColorStop(1,'rgba(30,115,35,0.35)');ctx.fillStyle=lg;ctx.beginPath();ctx.ellipse(0,0,lr,lr*0.65,0,0,Math.PI*2);ctx.fill();ctx.strokeStyle='rgba(30,80,30,0.25)';ctx.lineWidth=0.5;ctx.beginPath();ctx.moveTo(-lr*0.7,0);ctx.lineTo(lr*0.7,0);ctx.stroke();ctx.restore();if(i===1||i===3||i===6)drawLotusFlower(lx+rr(-3,3),ly-rr(6,14),rr(5,9))})}
 function drawLotusFlower(x,y,sz){ctx.save();ctx.translate(x,y);for(let i=0;i<8;i++){let a=(i/8)*Math.PI*2-Math.PI/2,px=Math.cos(a)*sz*0.4,py=Math.sin(a)*sz*0.4;ctx.fillStyle=i%2===0?'rgba(255,190,205,0.9)':'rgba(255,225,235,0.85)';ctx.beginPath();ctx.ellipse(px,py,sz*0.32,sz*0.18,a,0,Math.PI*2);ctx.fill()}ctx.fillStyle='rgba(255,215,80,0.9)';ctx.beginPath();ctx.arc(0,0,sz*0.15,0,Math.PI*2);ctx.fill();ctx.restore()}
-function drawReflections(){ctx.save();ctx.globalAlpha=0.18;[tree1,tree2].forEach(t=>{let reflY=2*pondCY-t.y;if(Math.abs(t.x-pondCX)<pondRX*1.1){ctx.fillStyle='rgba(255,180,195,0.5)';ctx.beginPath();ctx.ellipse(t.x,reflY+10,30*t.scale,15*t.scale,0,0,Math.PI*2);ctx.fill()}});let pavX=W*0.78,pavY=groundY-H*0.12;if(Math.abs(pavX-pondCX)<pondRX*1.5){ctx.fillStyle='rgba(180,60,50,0.3)';ctx.beginPath();ctx.ellipse(pavX,2*pondCY-pavY,20,8,0,0,Math.PI*2);ctx.fill()}ctx.restore()}
+function drawReflections(){ctx.save();ctx.globalAlpha=0.18;[tree1,tree2].forEach(t=>{let reflY=2*pondCY-t.y;if(Math.abs(t.x-pondCX)<pondRX*1.1){ctx.fillStyle='rgba(255,180,195,0.5)';ctx.beginPath();ctx.ellipse(t.x,reflY+10,30*t.scale,15*t.scale,0,0,Math.PI*2);ctx.fill()}});let pavX=W*0.78,pavY=groundY+H*0.02;if(Math.abs(pavX-pondCX)<pondRX*1.5){ctx.fillStyle='rgba(180,60,50,0.3)';ctx.beginPath();ctx.ellipse(pavX,2*pondCY-pavY,20,8,0,0,Math.PI*2);ctx.fill()}ctx.restore()}
 function drawBridge(){ctx.save();let bx=W*0.34,by=groundY+H*0.05,bw=W*0.17,archH=H*0.055;ctx.fillStyle='rgba(50,40,30,0.08)';ctx.beginPath();ctx.ellipse(bx,by+10,bw*0.48,5,0,0,Math.PI*2);ctx.fill();ctx.fillStyle='rgba(80,155,165,0.2)';ctx.beginPath();ctx.ellipse(bx,by+8,bw*0.38,archH*0.45,0,0,Math.PI);ctx.fill();let bg=ctx.createLinearGradient(bx-bw*0.5,by-archH,bx+bw*0.5,by+6);bg.addColorStop(0,'#C8B8A2');bg.addColorStop(0.3,'#D4C8B2');bg.addColorStop(0.7,'#CCBFA8');bg.addColorStop(1,'#B8A890');ctx.fillStyle=bg;ctx.beginPath();ctx.moveTo(bx-bw*0.48,by+6);ctx.quadraticCurveTo(bx-bw*0.48,by-archH*0.25,bx,by-archH);ctx.quadraticCurveTo(bx+bw*0.48,by-archH*0.25,bx+bw*0.48,by+6);ctx.lineTo(bx+bw*0.48,by+9);ctx.quadraticCurveTo(bx+bw*0.48,by-archH*0.15,bx,by-archH+3);ctx.quadraticCurveTo(bx-bw*0.48,by-archH*0.15,bx-bw*0.48,by+9);ctx.closePath();ctx.fill();ctx.strokeStyle='rgba(100,80,60,0.15)';ctx.lineWidth=0.5;for(let i=0;i<5;i++){let t=0.12+i*0.16,ly=by-archH+archH*t+6*(1-t),hw=bw*0.48*(0.35+t*0.65);ctx.beginPath();ctx.moveTo(bx-hw,ly);ctx.lineTo(bx+hw,ly);ctx.stroke()}ctx.strokeStyle='#A89880';ctx.lineWidth=1.5;ctx.lineCap='round';ctx.beginPath();ctx.moveTo(bx-bw*0.46,by+5);ctx.quadraticCurveTo(bx-bw*0.46,by-archH*0.35,bx-bw*0.08,by-archH+3);ctx.stroke();ctx.beginPath();ctx.moveTo(bx+bw*0.46,by+5);ctx.quadraticCurveTo(bx+bw*0.46,by-archH*0.35,bx+bw*0.08,by-archH+3);ctx.stroke();for(let i=0;i<5;i++){let t=0.15+i*0.17,sinT=Math.sin(t*Math.PI),px=bx-bw*0.48+bw*t,py=by-archH*sinT*0.85+6*(1-sinT*0.85);ctx.fillStyle='#A89880';ctx.fillRect(px-1.2,py-7,2.4,7);ctx.fillStyle='#C0B098';ctx.beginPath();ctx.arc(px,py-7,2,0,Math.PI*2);ctx.fill()}ctx.restore()}
 function drawCherryTree(t){ctx.save();ctx.translate(t.x,t.y);let s=t.scale;ctx.scale(s,s);ctx.fillStyle='rgba(30,50,20,0.08)';ctx.beginPath();ctx.ellipse(5,62,55,12,0.1,0,Math.PI*2);ctx.fill();let tg=ctx.createLinearGradient(-6,0,6,0);tg.addColorStop(0,'#5A3520');tg.addColorStop(0.3,'#7A4E30');tg.addColorStop(0.7,'#6B4226');tg.addColorStop(1,'#4A2A18');ctx.strokeStyle=tg;ctx.lineCap='round';ctx.lineWidth=9;ctx.beginPath();ctx.moveTo(0,60);ctx.bezierCurveTo(-3,40,-6,20,-10,5);ctx.bezierCurveTo(-12,-2,-14,-5,-16,0);ctx.stroke();[{sx:-13,sy:2,cx1:-30,cy1:-15,cx2:-55,cy2:-25,ex:-72,ey:-42,w:5},{sx:-11,sy:8,cx1:-28,cy1:-5,cx2:-45,cy2:-15,ex:-62,ey:-30,w:4},{sx:-6,sy:0,cx1:10,cy1:-20,cx2:25,cy2:-35,ex:42,ey:-55,w:5},{sx:-8,sy:12,cx1:8,cy1:0,cx2:22,cy2:-8,ex:38,ey:-28,w:3.5},{sx:-15,sy:-2,cx1:-28,cy1:-20,cx2:-22,cy2:-35,ex:-20,ey:-52,w:3},{sx:-14,sy:0,cx1:-40,cy1:-30,cx2:-75,cy2:-38,ex:-85,ey:-48,w:3.5},{sx:0,sy:-3,cx1:15,cy1:-25,cx2:30,cy2:-50,ex:28,ey:-68,w:3}].forEach(b=>{ctx.lineWidth=b.w;ctx.strokeStyle='#6B4226';ctx.beginPath();ctx.moveTo(b.sx,b.sy);ctx.bezierCurveTo(b.cx1,b.cy1,b.cx2,b.cy2,b.ex,b.ey);ctx.stroke()});srand(t.x*100+t.y);[{x:-72,y:-42,r:32},{x:-62,y:-30,r:26},{x:42,y:-55,r:30},{x:38,y:-28,r:24},{x:-20,y:-52,r:22},{x:-85,y:-48,r:20},{x:28,y:-68,r:18},{x:-50,y:-35,r:18},{x:5,y:-20,r:22},{x:-35,y:-50,r:16},{x:15,y:-50,r:20},{x:-60,y:-42,r:15}].forEach(bp=>{let cnt=ri(15,25);for(let i=0;i<cnt;i++){let a=rr(0,Math.PI*2),d=rr(0,bp.r),ox=Math.cos(a)*d,oy=Math.sin(a)*d*0.7,r=rr(3,6.5),alpha=rr(0.35,0.75);ctx.fillStyle=rand()>0.35?`rgba(255,${175+ri(0,30)},${190+ri(0,20)},${alpha})`:`rgba(255,${235+ri(0,15)},${240+ri(0,10)},${alpha})`;ctx.beginPath();ctx.arc(bp.x+ox,bp.y+oy,r,0,Math.PI*2);ctx.fill()}});ctx.restore()}
 function drawAllTrees(){drawCherryTree(tree1);drawCherryTree(tree2)}
-function drawPavilion(){let px=W*0.78,py=groundY-H*0.12,s=Math.min(W,H)*0.11;ctx.save();let hg=ctx.createRadialGradient(px,py+s*0.6,0,px,py+s*0.6,s*0.9);hg.addColorStop(0,'#6DA832');hg.addColorStop(0.7,'#5E9A28');hg.addColorStop(1,'rgba(94,154,40,0)');ctx.fillStyle=hg;ctx.beginPath();ctx.ellipse(px,py+s*0.6,s*0.85,s*0.22,0,0,Math.PI*2);ctx.fill();ctx.fillStyle='#D0C4AE';ctx.beginPath();ctx.ellipse(px,py+s*0.5,s*0.65,s*0.18,0,0,Math.PI*2);ctx.fill();ctx.strokeStyle='rgba(100,80,60,0.2)';ctx.lineWidth=1;ctx.stroke();ctx.fillStyle='#DCD0BC';ctx.beginPath();ctx.ellipse(px,py+s*0.48,s*0.62,s*0.15,0,Math.PI,Math.PI*2);ctx.fill();ctx.fillStyle='#C8BBA5';roundRect(px-s*0.12,py+s*0.55,s*0.24,s*0.08,2);ctx.fillStyle='#BCAFA0';roundRect(px-s*0.15,py+s*0.61,s*0.3,s*0.04,2);let pillarBot=py+s*0.48,pillarTop=py-s*0.2;for(let i=0;i<6;i++){let a=(i/6)*Math.PI*2-Math.PI/2,cx=px+Math.cos(a)*s*0.42;ctx.fillStyle='rgba(120,30,30,0.1)';ctx.fillRect(cx-2,pillarTop+1,7,pillarBot-pillarTop);let pg=ctx.createLinearGradient(cx-3,0,cx+3,0);pg.addColorStop(0,'#B83220');pg.addColorStop(0.35,'#D44030');pg.addColorStop(0.65,'#D44030');pg.addColorStop(1,'#9A2818');ctx.fillStyle=pg;ctx.fillRect(cx-2.5,pillarTop,5,pillarBot-pillarTop);ctx.fillStyle='#D0C0A8';ctx.fillRect(cx-4,pillarBot-3,8,3)}drawHexRoof(px,pillarTop-2,s*0.68,s*0.38);drawHexRoof(px,pillarTop-s*0.52,s*0.48,s*0.28);ctx.fillStyle='#8B7355';ctx.beginPath();ctx.moveTo(px,pillarTop-s*0.95);ctx.lineTo(px-3,pillarTop-s*0.82);ctx.lineTo(px+3,pillarTop-s*0.82);ctx.closePath();ctx.fill();ctx.fillStyle='#DAA520';ctx.beginPath();ctx.arc(px,pillarTop-s*0.97,3,0,Math.PI*2);ctx.fill();let lx=px+s*0.32,ly=pillarTop-s*0.1,ls=s*0.08;ctx.strokeStyle='rgba(160,50,50,0.4)';ctx.lineWidth=0.8;ctx.beginPath();ctx.moveTo(lx,ly-ls*3);ctx.lineTo(lx,ly-ls);ctx.stroke();let llg=ctx.createRadialGradient(lx,ly,0,lx,ly,ls);llg.addColorStop(0,'rgba(230,90,70,0.6)');llg.addColorStop(1,'rgba(200,70,55,0.4)');ctx.fillStyle=llg;ctx.beginPath();ctx.ellipse(lx,ly,ls*0.5,ls*0.8,0,0,Math.PI*2);ctx.fill();ctx.fillStyle='rgba(190,160,110,0.6)';ctx.fillRect(lx-ls*0.35,ly-ls,ls*0.7,2);ctx.fillRect(lx-ls*0.35,ly+ls-2,ls*0.7,2);ctx.strokeStyle='rgba(190,160,110,0.4)';ctx.lineWidth=0.6;ctx.beginPath();ctx.moveTo(lx,ly+ls);ctx.lineTo(lx,ly+ls*1.8);ctx.stroke();ctx.restore()}
+function drawPavilion(){let px=W*0.78,py=groundY+H*0.02,s=Math.min(W,H)*0.11;ctx.save();let hg=ctx.createRadialGradient(px,py+s*0.6,0,px,py+s*0.6,s*0.9);hg.addColorStop(0,'#6DA832');hg.addColorStop(0.7,'#5E9A28');hg.addColorStop(1,'rgba(94,154,40,0)');ctx.fillStyle=hg;ctx.beginPath();ctx.ellipse(px,py+s*0.6,s*0.85,s*0.22,0,0,Math.PI*2);ctx.fill();ctx.fillStyle='#D0C4AE';ctx.beginPath();ctx.ellipse(px,py+s*0.5,s*0.65,s*0.18,0,0,Math.PI*2);ctx.fill();ctx.strokeStyle='rgba(100,80,60,0.2)';ctx.lineWidth=1;ctx.stroke();ctx.fillStyle='#DCD0BC';ctx.beginPath();ctx.ellipse(px,py+s*0.48,s*0.62,s*0.15,0,Math.PI,Math.PI*2);ctx.fill();ctx.fillStyle='#C8BBA5';roundRect(px-s*0.12,py+s*0.55,s*0.24,s*0.08,2);ctx.fillStyle='#BCAFA0';roundRect(px-s*0.15,py+s*0.61,s*0.3,s*0.04,2);let pillarBot=py+s*0.48,pillarTop=py-s*0.2;for(let i=0;i<6;i++){let a=(i/6)*Math.PI*2-Math.PI/2,cx=px+Math.cos(a)*s*0.42;ctx.fillStyle='rgba(120,30,30,0.1)';ctx.fillRect(cx-2,pillarTop+1,7,pillarBot-pillarTop);let pg=ctx.createLinearGradient(cx-3,0,cx+3,0);pg.addColorStop(0,'#B83220');pg.addColorStop(0.35,'#D44030');pg.addColorStop(0.65,'#D44030');pg.addColorStop(1,'#9A2818');ctx.fillStyle=pg;ctx.fillRect(cx-2.5,pillarTop,5,pillarBot-pillarTop);ctx.fillStyle='#D0C0A8';ctx.fillRect(cx-4,pillarBot-3,8,3)}drawHexRoof(px,pillarTop-2,s*0.68,s*0.38);drawHexRoof(px,pillarTop-s*0.52,s*0.48,s*0.28);ctx.fillStyle='#8B7355';ctx.beginPath();ctx.moveTo(px,pillarTop-s*0.95);ctx.lineTo(px-3,pillarTop-s*0.82);ctx.lineTo(px+3,pillarTop-s*0.82);ctx.closePath();ctx.fill();ctx.fillStyle='#DAA520';ctx.beginPath();ctx.arc(px,pillarTop-s*0.97,3,0,Math.PI*2);ctx.fill();let roof1R=s*0.68*1.15;for(let li=0;li<6;li++){let la=(li/6)*Math.PI*2-Math.PI/2+Math.PI/6,lx=px+Math.cos(la)*roof1R*0.72,ly=pillarTop+s*0.02+Math.sin(la)*roof1R*0.06,ls=s*0.052;ctx.strokeStyle='rgba(160,50,50,0.3)';ctx.lineWidth=0.5;ctx.beginPath();ctx.moveTo(lx,ly-ls*3.5);ctx.lineTo(lx,ly-ls*0.8);ctx.stroke();let lglow=ctx.createRadialGradient(lx,ly,0,lx,ly,ls*2);lglow.addColorStop(0,'rgba(240,180,80,0.12)');lglow.addColorStop(1,'rgba(240,180,80,0)');ctx.fillStyle=lglow;ctx.beginPath();ctx.arc(lx,ly,ls*2,0,Math.PI*2);ctx.fill();let lbg=ctx.createRadialGradient(lx,ly,0,lx,ly,ls);lbg.addColorStop(0,'rgba(230,85,65,0.6)');lbg.addColorStop(1,'rgba(200,60,45,0.4)');ctx.fillStyle=lbg;ctx.beginPath();ctx.ellipse(lx,ly,ls*0.42,ls*0.72,0,0,Math.PI*2);ctx.fill();ctx.fillStyle='rgba(190,160,110,0.5)';ctx.fillRect(lx-ls*0.3,ly-ls*0.78,ls*0.6,1.2);ctx.fillRect(lx-ls*0.3,ly+ls*0.68,ls*0.6,1.2);ctx.strokeStyle='rgba(190,160,110,0.3)';ctx.lineWidth=0.4;ctx.beginPath();ctx.moveTo(lx,ly+ls*0.72);ctx.lineTo(lx,ly+ls*1.5);ctx.stroke()}ctx.restore()}
 function drawHexRoof(cx,cy,radius,height){let sides=6,eaveR=radius*1.15;ctx.save();ctx.globalAlpha=0.08;ctx.fillStyle='#000';ctx.beginPath();for(let i=0;i<sides;i++){let a=(i/sides)*Math.PI*2-Math.PI/2,x=cx+Math.cos(a)*eaveR+3,y=cy+Math.sin(a)*eaveR*0.3+height*0.25+3;if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y)}ctx.closePath();ctx.fill();ctx.restore();ctx.beginPath();let topY=cy-height*0.45,botY=cy+height*0.25;for(let i=0;i<sides;i++){let a=(i/sides)*Math.PI*2-Math.PI/2,x=cx+Math.cos(a)*eaveR,y=cy+Math.sin(a)*eaveR*0.3+height*0.25;if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y)}ctx.closePath();let rg=ctx.createLinearGradient(cx,topY,cx,botY);rg.addColorStop(0,'#606060');rg.addColorStop(0.4,'#787878');rg.addColorStop(1,'#959595');ctx.fillStyle=rg;ctx.fill();ctx.strokeStyle='rgba(50,50,50,0.2)';ctx.lineWidth=0.8;ctx.stroke();ctx.strokeStyle='rgba(70,55,40,0.2)';ctx.lineWidth=0.7;for(let i=0;i<sides;i++){let a=(i/sides)*Math.PI*2-Math.PI/2,ex=cx+Math.cos(a)*eaveR,ey=cy+Math.sin(a)*eaveR*0.3+height*0.25;ctx.beginPath();ctx.moveTo(cx,topY+height*0.15);ctx.quadraticCurveTo((cx+ex)/2,(topY+ey)/2-3,ex,ey);ctx.stroke()}ctx.strokeStyle='#787878';ctx.lineWidth=2;ctx.lineCap='round';for(let i=0;i<sides;i++){let a=(i/sides)*Math.PI*2-Math.PI/2,ex=cx+Math.cos(a)*eaveR,ey=cy+Math.sin(a)*eaveR*0.3+height*0.25,nx=Math.cos(a)*8,ny=Math.sin(a)*3-5;ctx.beginPath();ctx.moveTo(ex,ey);ctx.quadraticCurveTo(ex+nx*0.5,ey+ny*0.5-3,ex+nx,ey+ny);ctx.stroke();ctx.fillStyle='#A0A0A0';ctx.beginPath();ctx.arc(ex+nx,ey+ny,1.2,0,Math.PI*2);ctx.fill()}}
 function roundRect(x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.lineTo(x+w-r,y);ctx.arcTo(x+w,y,x+w,y+r,r);ctx.lineTo(x+w,y+h-r);ctx.arcTo(x+w,y+h,x+w-r,y+h,r);ctx.lineTo(x+r,y+h);ctx.arcTo(x,y+h,x,y+h-r,r);ctx.lineTo(x+r,y);ctx.arcTo(x,y,x+r,y,r);ctx.closePath();ctx.fill()}
 function drawBamboos(){bamboos.forEach(b=>{let topX=b.x+Math.sin(time*0.0012+b.phase)*b.swayAmp;ctx.save();let segs=10,segH=b.h/segs;for(let i=0;i<segs;i++){let t0=i/segs,t1=(i+1)/segs,x0=b.x+(topX-b.x)*t0,x1=b.x+(topX-b.x)*t1,y0=b.baseY-i*segH,y1=b.baseY-(i+1)*segH;let bg=ctx.createLinearGradient(x0-b.thick/2,0,x0+b.thick/2,0);bg.addColorStop(0,'#2D8835');bg.addColorStop(0.35,'#4DB855');bg.addColorStop(0.65,'#42AD4A');bg.addColorStop(1,'#2D8835');ctx.fillStyle=bg;ctx.beginPath();ctx.moveTo(x0-b.thick/2,y0);ctx.lineTo(x1-b.thick*0.45,y1);ctx.lineTo(x1+b.thick*0.45,y1);ctx.lineTo(x0+b.thick/2,y0);ctx.closePath();ctx.fill();ctx.fillStyle='rgba(30,75,30,0.4)';ctx.fillRect(x0-b.thick/2-1,y0,b.thick+2,1.5)}b.leaves.forEach(l=>{let t=l.t,lx=b.x+(topX-b.x)*t,ly=b.baseY-t*b.h,sway=Math.sin(time*0.0018+l.phase)*2;ctx.save();ctx.translate(lx,ly);ctx.rotate(l.angle+sway*0.05);let lg=ctx.createLinearGradient(0,0,l.len*(l.side>0?1:-1),0);lg.addColorStop(0,'rgba(45,155,55,0.85)');lg.addColorStop(0.5,'rgba(65,185,72,0.75)');lg.addColorStop(1,'rgba(50,145,55,0.45)');ctx.fillStyle=lg;ctx.beginPath();ctx.moveTo(0,0);ctx.quadraticCurveTo(l.len*0.4,-l.width*0.45,l.len,sway*0.5);ctx.quadraticCurveTo(l.len*0.4,l.width*0.45,0,0);ctx.fill();ctx.strokeStyle='rgba(35,100,40,0.3)';ctx.lineWidth=0.3;ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(l.len*0.9,sway*0.3);ctx.stroke();ctx.restore()});ctx.restore()})}
@@ -570,16 +562,16 @@ function render(){
 
 // ===== Card Data =====
 const D=[
-  {i:'🎋',t:'竹有话说',b:'竹子长得好快\n一年就窜老高\n\n我偷偷量了一下\n还是矮\n\n但没关系\n慢慢长也挺好的'},
+  {i:'🎋',t:'竹有话说',b:'风穿过竹林的时候\n声音会慢下来\n\n所以我喜欢站在竹林里\n听风替我说\n那些来不及讲的话'},
   {i:'🌺',t:'花有话说',b:'你画过的那些花\n后来真的开了\n\n不是我种的\n是它们自己\n想让你看看'},
-  {i:'🏮',t:'亭有话说',b:'我算过\n从这里到你的距离\n不算太远\n\n问题是\n今天是星期几'},
-  {i:'🌕',t:'径有话说',b:'弯弯曲曲的小路\n不知道通向哪里\n但我知道\n\n只要是和你一起走\n哪条都行'},
-  {i:'🏮',t:'灯有话说',b:'猫咪最懂灯\n光在哪里\n就趴在哪里\n\n我最懂你\n你在哪里\n我就想在哪里'},
+  {i:'🏯',t:'亭有话说',b:'拙政园的亭子\n每一座都对着一个看不尽的景\n\n这座也是\n不过它没有对着荷花池\n也没有对着远山\n它对着你来时的那条路'},
+  {i:'🌿',t:'径有话说',b:'这条小径不宽\n刚好够两个人\n\n我想和你\n就这么慢慢地走\n不问终点\n走到哪里\n哪里就是好风景'},
+  {i:'🏮',t:'灯有话说',b:'灯亮着的时候\n整个园子都暖了\n\n你出现的时候\n也是这样'},
   {i:'🌸',t:'荷有话说',b:'荷塘边的兔子\n竖着耳朵听风\n\n我也一样\n竖着耳朵\n等你说想我'},
-  {i:'🌉',t:'桥有话说',b:'桥下面有鱼\n桥上面有人\n\n鱼不知道桥去哪\n人只想\n从桥上走到你身边'},
-  {i:'🐟',t:'鱼有话说',b:'如果我是锦鲤\n我只许一个愿望\n\n就是下次见面的时候\n能碰到你\n不算犯规吧'},
-  {i:'🐠',t:'金鱼有话说',b:'金鱼只有七秒记忆\n那也太好了吧\n\n每次见到你都像\n第一次\n\n心跳加速的那种'},
-  {i:'🪨',t:'石有话说',b:'这块石头在这坐了很久\n什么都知道\n\n它说你今天很可爱\n问我怎么知道的\n\n它跟我说的'},
+  {i:'🌉',t:'桥有话说',b:'桥把两岸连在一起\n却让人忍不住停下来\n站在桥上看\n左边的荷叶\n右边的水\n\n其实看什么不重要\n重要的是\n站在旁边的人'},
+  {i:'🐟',t:'鱼有话说',b:'鱼在水里\n从来不需要知道岸上发生了什么\n它只管游\n\n可我每次站在池边\n都会想\n它们有没有看见\n水面上映着的\n你笑起来的样子'},
+  {i:'🐠',t:'金鱼有话说',b:'每次来池塘边\n金鱼都聚过来\n红的、白的、金的\n挤在一起争着游\n\n我蹲在那里看了很久\n想让你也来数一数\n到底有几条\n数着数着\n会不会数到我心里'},
+  {i:'🪨',t:'石有话说',b:'太湖石讲究「瘦皱漏透」\n每一道纹理都是岁月的手笔\n\n好的石头\n要摆在对的位子\n才衬得上这一园子的山水\n\n你也是\n刚好摆在了\n我心里最显眼的位置'},
 ];
 
 let opened=new Set(),ulkOn=false,eggAnimId=null,allDone=false;
