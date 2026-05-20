@@ -93,8 +93,8 @@ html,body{width:100%;height:100%;overflow:hidden;background:#87CEEB;
   display:flex;flex-direction:column;align-items:center;gap:8px;
   opacity:0;pointer-events:none;transition:opacity .4s;z-index:20}
 #ulk.on{opacity:1;pointer-events:all}
-#ulk p{font-size:11px;color:#2a2520;letter-spacing:3px;
-  text-shadow:0 1px 5px rgba(255,255,255,0.8)}
+#ulk p{font-size:13px;color:#3d352a;letter-spacing:3px;font-weight:500;
+  text-shadow:0 1px 8px rgba(255,255,255,1),0 0 12px rgba(255,255,255,.6)}
 #ulk input{width:100px;background:rgba(244,238,223,.6);border:none;
   border-bottom:1px solid #9a8a70;outline:none;font-family:inherit;
   font-size:20px;text-align:center;color:var(--red);letter-spacing:10px;padding:3px 6px;
@@ -652,32 +652,39 @@ function openEgg(){
 }
 function initEggCanvas(){
   const c=document.getElementById('egg-canvas');
-  c.width=window.innerWidth;c.height=window.innerHeight;
-  // draw static bg once
+  const dpr=devicePixelRatio||1;
+  const lw=window.innerWidth,lh=window.innerHeight;
+  c.width=lw*dpr;c.height=lh*dpr;
+  // draw static bg once (scale context so all coords stay in logical px)
   const ctx2=c.getContext('2d');
-  const oc=document.createElement('canvas');oc.width=c.width;oc.height=c.height;
+  ctx2.setTransform(dpr,0,0,dpr,0,0);
+  const oc=document.createElement('canvas');oc.width=lw*dpr;oc.height=lh*dpr;
   const octx=oc.getContext('2d');
-  const mx=oc.width*.75,my=oc.height*.18,mr=Math.min(oc.width,oc.height)*.08;
+  octx.setTransform(dpr,0,0,dpr,0,0);
+  const mx=lw*.75,my=lh*.18,mr=Math.min(lw,lh)*.08;
   octx.save();octx.beginPath();octx.arc(mx,my,mr,0,Math.PI*2);
   const mg=octx.createRadialGradient(mx,my,0,mx,my,mr);mg.addColorStop(0,'#f0e8d0');mg.addColorStop(.7,'#e0d0b0');mg.addColorStop(1,'#c8b890');octx.fillStyle=mg;octx.fill();
   octx.beginPath();octx.arc(mx,my,mr*2,0,Math.PI*2);const mg2=octx.createRadialGradient(mx,my,mr*.8,mx,my,mr*2);mg2.addColorStop(0,'rgba(220,210,180,.15)');mg2.addColorStop(1,'rgba(220,210,180,0)');octx.fillStyle=mg2;octx.fill();octx.restore();
-  octx.save();for(let i=0;i<60;i++){const sx=Math.random()*oc.width,sy=Math.random()*oc.height*.6,sr=.4+Math.random()*1.2;octx.globalAlpha=.3+Math.random()*.5;octx.fillStyle='#e0d8c0';octx.beginPath();octx.arc(sx,sy,sr,0,Math.PI*2);octx.fill()}octx.restore();
-  octx.save();octx.globalAlpha=.6;octx.fillStyle='#0e1828';octx.beginPath();octx.moveTo(0,oc.height*.7);octx.quadraticCurveTo(oc.width*.15,oc.height*.45,oc.width*.3,oc.height*.6);octx.quadraticCurveTo(oc.width*.45,oc.height*.42,oc.width*.6,oc.height*.58);octx.quadraticCurveTo(oc.width*.8,oc.height*.38,oc.width,oc.height*.55);octx.lineTo(oc.width,oc.height);octx.lineTo(0,oc.height);octx.fill();octx.restore();
+  octx.save();for(let i=0;i<60;i++){const sx=Math.random()*lw,sy=Math.random()*lh*.6,sr=.4+Math.random()*1.2;octx.globalAlpha=.3+Math.random()*.5;octx.fillStyle='#e0d8c0';octx.beginPath();octx.arc(sx,sy,sr,0,Math.PI*2);octx.fill()}octx.restore();
+  octx.save();octx.globalAlpha=.6;octx.fillStyle='#0e1828';octx.beginPath();octx.moveTo(0,lh*.7);octx.quadraticCurveTo(lw*.15,lh*.45,lw*.3,lh*.6);octx.quadraticCurveTo(lw*.45,lh*.42,lw*.6,lh*.58);octx.quadraticCurveTo(lw*.8,lh*.38,lw,lh*.55);octx.lineTo(lw,lh);octx.lineTo(0,lh);octx.fill();octx.restore();
   octx.save();octx.globalAlpha=.8;octx.fillStyle='#0a1220';
   function drawTree(ctx,x,h,size){ctx.fillRect(x-size*.06,h*.3,size*.12,h*.7);ctx.beginPath();ctx.arc(x,h*.25,size*.28,0,Math.PI*2);ctx.fill();ctx.beginPath();ctx.arc(x-size*.15,h*.38,size*.2,0,Math.PI*2);ctx.fill();ctx.beginPath();ctx.arc(x+size*.15,h*.36,size*.22,0,Math.PI*2);ctx.fill()}
-  drawTree(octx,oc.width*.12,oc.height*.68,50);drawTree(octx,oc.width*.88,oc.height*.65,60);drawTree(octx,oc.width*.25,oc.height*.72,35);
+  drawTree(octx,lw*.12,lh*.68,50);drawTree(octx,lw*.88,lh*.65,60);drawTree(octx,lw*.25,lh*.72,35);
   octx.restore();
   eggBgCache=oc;
 }
 function tickEgg(){
   const c=document.getElementById('egg-canvas');
   const ctx2=c.getContext('2d');
+  const dpr=devicePixelRatio||1;
+  ctx2.setTransform(1,0,0,1,0,0);
   ctx2.clearRect(0,0,c.width,c.height);
+  ctx2.setTransform(dpr,0,0,dpr,0,0);
   if(eggBgCache) ctx2.drawImage(eggBgCache,0,0);
   eggParticles=eggParticles.filter(p=>{
     if(p.type==='firefly'){
       p.phase+=p.speed;p.x+=p.vx+Math.sin(p.phase)*.3;p.y+=p.vy+Math.cos(p.phase*.7)*.2;
-      if(p.x<-20)p.x=c.width+20;if(p.x>c.width+20)p.x=-20;if(p.y<-20)p.y=c.height+20;if(p.y>c.height+20)p.y=-20;
+      if(p.x<-20)p.x=window.innerWidth+20;if(p.x>window.innerWidth+20)p.x=-20;if(p.y<-20)p.y=window.innerHeight+20;if(p.y>window.innerHeight+20)p.y=-20;
       const alpha=.4+Math.sin(p.phase)*.35;ctx2.save();ctx2.globalAlpha=Math.max(0,alpha);
       const g=ctx2.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*4);g.addColorStop(0,'rgba(200,240,120,.6)');g.addColorStop(1,'rgba(200,240,120,0)');ctx2.fillStyle=g;ctx2.beginPath();ctx2.arc(p.x,p.y,p.r*4,0,Math.PI*2);ctx2.fill();
       ctx2.fillStyle='#d0f060';ctx2.beginPath();ctx2.arc(p.x,p.y,p.r,0,Math.PI*2);ctx2.fill();ctx2.restore();return true;
